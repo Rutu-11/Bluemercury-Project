@@ -1,0 +1,55 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 400px;
+    margin: auto;
+    padding: -7px;
+    /* background-color: white; */
+   
+  }
+  input {
+    padding: 20px;
+    margin: 30px;
+  }
+  input:not(:last-child) {
+    border: none;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    /* color: rgb(211, 218, 226); */
+    font-size: x-large;
+    margin-top: -2%;
+  }
+  input:last-child {
+    background-color: rgb(134, 76, 177);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  #heading {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+  #signup>h1{
+    text-align: center;
+    margin-top: 100px;
+    color: rgb(134, 76, 177) ;
+  }
+  #signup {
+    /* background-color: white; */
+    width: 50%;
+    height: 600px;
+    margin: auto;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  }
+  input:last-child:hover{
+    color: wheat;
+  }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up Page</title>
+ <link rel="stylesheet" href="Signup.css">
+</head>
+
+<body>
+  <div class="nav">
+    <a href="./Signup.html">Signup</a>
+    <a href="./Login.html">Signin</a>
+  </div>
+  <div id="signup">
+    <h1>Create Account</h1>
+    <h2 id="heading">Please Enter Your Details</h2>
+    <form>
+      <input type="text" id="name" placeholder="Enter Name" >
+      <input type="email" id="email" placeholder="Enter E-mail" >
+      <input type="password"  id="password" placeholder="Enter password" >
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+</body>
+<script>
+ // var arr=[];
+  var arr=JSON.parse(localStorage.getItem("account-data")) || [];
+  document.querySelector("form").addEventListener("submit",myform);
+  function myform(){
+    event.preventDefault();
+    var obj={
+       name:document.getElementById("name").value,
+       email:document.getElementById("email").value,
+       pass:document.getElementById("password").value,
+    }
+    arr.push(obj);
+    localStorage.setItem("account-data",JSON.stringify(arr));
+    alert("Signup success");
+    // window.location.href="signin.html";
+  }
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in Page</title>
+    <link rel="stylesheet" href="Login.css">
+  </head>
+  <body>
+    <div class="nav">
+      <a href="./Signup.html">Signup</a>
+      <a href="./Login.html">Signin</a>
+    </div>
+    <div id="signin">
+      <h1 id="heading">LOGIN HERE</h1>
+      <h2>Please Enter Your E-mail And Password</h2>
+      <form>
+        <input type="email" id="email" placeholder="Enter E-mail" />
+        <input type="password" id="password" placeholder="Enter password" />
+        <input type="submit" value="Submit" />
+      </form>
+      <!-- <p>Forgot <span>password ?</span></p> -->
+      <p>Don't have an account? <span>Sign up</span></p>
+    </div>
+  </body>
+  <script> 
+    
+    document.querySelector("form").addEventListener("submit",myform);
+    function myform(){
+      event.preventDefault();
+      var flag=1;
+      var obj={
+        email:document.getElementById("email").value,
+        pass:document.getElementById("password").value,
+      }
+      var arr=JSON.parse(localStorage.getItem("account-data"));
+   console.log(arr);
+    arr.map(function(e){
+      if(e.email==obj.email && e.pass==obj.pass){
+        //document.querySelector("h1").innerText="Sign in Successful";
+        flag=0;
+        //return;
+      }
+      // else {
+      //   document.querySelector("h1").innerText="Wrong Credentials";
+      // }
+    })
+    flag==1?alert("Wrong Credentials"):alert("Sign in Successful");
+  }
+  </script>
+</html>
