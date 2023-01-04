@@ -2005,13 +2005,11 @@ function displayProducts(arr) {
     const container = document.getElementById("container");
 
     container.innerHTML += `
-    <div class="product-container>
-      <div>
+    <div class="product-container>     
         <i class="fas fa-heart"></i>
         <p>${element.merchbadge}</p>
-        <p>${element.merchbadge1}</p>
-      </div>
-        <img src="${element.Image}" alt="${element.Title}" />
+        <p>${element.merchbadge1}</p>     
+        <img src="${element.Image}" alt="${element.Title}" class="image"/>
         <h3>${element.productcard__brand}</h3>
         <p>${element.Title}</p>
         <p>$${element.Price}</p>
