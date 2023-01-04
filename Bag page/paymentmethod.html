@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment method - bluemercury - Checkout</title>
+    <style>
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+      }
+      #links {
+        display: flex;
+        width: 35%;
+        margin: auto;
+        margin-top: 30px;
+      }
+      h3 {
+        width: 80%;
+        margin: auto;
+        margin-top: 50px;
+      }
+      p {
+        width: 80%;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 30px;
+      }
+      table {
+        border: 1px solid black;
+        width: 80%;
+        margin: auto;
+        height: 80%;
+      }
+      td {
+        padding: 20px;
+      }
+      #inputdiv {
+        display: flex;
+      }
+      #inputdiv > input {
+        width: 100%;
+      }
+      input {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+      }
+      #billingadd {
+        width: 80%;
+        margin: auto;
+      }
+      form {
+        width: 100%;
+        margin: auto;
+      }
+      div > input {
+        width: 96.5%;
+      }
+      #names {
+        display: flex;
+      }
+      #names > input {
+        width: 100%;
+      }
+      #place {
+        display: flex;
+      }
+      #place > input {
+        width: 100%;
+      }
+      #cardno,
+      #cardname {
+        width: 96.5%;
+      }
+      #submitdiv {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        margin: auto;
+        margin-top: 50px;
+      }
+      #submitdiv + a {
+        padding-top: 30px;
+      }
+      input[type="submit"] {
+        background-color: rgb(18, 40, 76);
+        color: white;
+        cursor: pointer;
+        font-weight: bolder;
+        font-size: 15px;
+        border: none;
+        padding: 25px;
+        margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/blm-checkout-logo.png?129696"
+        alt=""
+      />
+      <div id="links">
+        <div><a href="ProductPage.html"> Cart &nbsp &nbsp > </a></div>
+        <div>
+          <a href="CustomerInfoPage.html">
+            &nbsp &nbsp Customer Information &nbsp &nbsp ></a
+          >
+        </div>
+        <div>
+          <a href="shippingmethod.html">
+            &nbsp &nbsp Shipping method &nbsp &nbsp ></a
+          >
+        </div>
+        <div>
+          <a href="paymentmethod.html">
+            &nbsp &nbsp Payment method &nbsp &nbsp
+          </a>
+        </div>
+      </div>
+      <table>
+        <tbody>
+          <tr id="boxtr"></tr>
+          <tr id="shiptotr"></tr>
+          <tr id="methodtr"></tr>
+        </tbody>
+      </table>
+      <h3>Payment method</h3>
+      <p>All transactions are secure and encrypted.</p>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                value="1"
+                id="type_radio_1"
+                name="type_radio"
+                type="radio"
+              />
+            </td>
+            <td>CASH ON DELIVERY</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                value="2"
+                id="type_radio_2"
+                name="type_radio"
+                type="radio"
+              />
+            </td>
+            <td>CREDIT CARD</td>
+            <td>
+              <img
+                src="https://cdn.knoji.com/images/ca/tacocabana-apple-pay-687198126780.jpg"
+                alt=""
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody id="paymenttable"></tbody>
+      </table>
+      <h3>Billing address</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                value="Same as shipping address"
+                id="type2_radio_1"
+                name="type2_radio"
+                type="radio"
+              />
+              <label for="type2_radio_1">Same as shipping address</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                value="2"
+                id="type2_radio_2"
+                name="type2_radio"
+                type="radio"
+              />
+              <label for="type2_radio_2">Use a different billing address</label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="billingadd" style="display: none">
+        <form>
+          <div>
+            <input type="text" id="country" placeholder="Country/Region" />
+          </div>
+          <div id="names">
+            <input type="text" id="firstname" placeholder="First name" />
+
+            <input type="text" id="lastname" placeholder="Last name" />
+          </div>
+          <div>
+            <input type="text" id="address1" placeholder="Address" />
+          </div>
+          <div>
+            <input
+              type="text"
+              id="address2"
+              placeholder="Apartment, suite, etc. (optional)"
+            />
+          </div>
+
+          <div id="place">
+            <input type="text" id="city" placeholder="City" />
+            <input type="text" id="state" placeholder="State" />
+            <input type="number" id="pincode" placeholder="Pincode" />
+          </div>
+        </form>
+      </div>
+      <div id="submitdiv">
+        <a href="shippingmethod.html">
+          <span>&nbsp < &nbsp </span> RETURN TO INFORMATION</a
+        >
+        <a href="paymentmethod.html">
+          <input type="submit" value="COMPLETE ORDER" />
+        </a>
+      </div>
+    </div>
+  </body>
+  <script>
+    var customerdata = JSON.parse(localStorage.getItem("customer-data")) || [];
+    document
+      .querySelector("#type_radio_2")
+      .addEventListener("click", payment2fun);
+    document
+      .querySelector("#type_radio_1")
+      .addEventListener("click", payment1fun);
+    document
+      .querySelector("#type2_radio_2")
+      .addEventListener("click", billing2fun);
+    document
+      .querySelector("#type2_radio_1")
+      .addEventListener("click", billing1fun);
+    var methodtext = localStorage.getItem("method");
+    var obj = customerdata[customerdata.length - 1];
+    displayinfo();
+    function displayinfo() {
+      var contact = document.createElement("td");
+      contact.textContent = "Contact";
+      var contacttext = document.createElement("td");
+      contacttext.textContent = obj.email;
+      var change1 = document.createElement("td");
+      var anchor1 = document.createElement("a");
+      anchor1.textContent = "change";
+      anchor1.setAttribute("href", "./CustomerInfoPage.html");
+      change1.append(anchor1);
+      document.querySelector("#boxtr").append(contact, contacttext, change1);
+      var shipto = document.createElement("td");
+      shipto.textContent = "Ship to";
+      var shiptotext = document.createElement("td");
+      shiptotext.textContent =
+        obj.address1 +
+        "," +
+        " " +
+        obj.city +
+        " " +
+        obj.state +
+        " " +
+        obj.pincode +
+        "," +
+        " " +
+        obj.country;
+      var change2 = document.createElement("td");
+      var anchor2 = document.createElement("a");
+      anchor2.textContent = "change";
+      anchor2.setAttribute("href", "./CustomerInfoPage.html");
+      change2.append(anchor2);
+      document.querySelector("#shiptotr").append(shipto, shiptotext, change2);
+      var method = document.createElement("td");
+      method.textContent = "Method";
+      var methodtxt = document.createElement("td");
+      methodtxt.textContent = methodtext;
+      var change3 = document.createElement("td");
+      var anchor3 = document.createElement("a");
+      anchor3.textContent = "change";
+      anchor3.setAttribute("href", "./shippingmethod.html");
+      change3.append(anchor3);
+      document.querySelector("#methodtr").append(method, methodtxt, change3);
+    }
+
+    function payment1fun() {
+      document.querySelector("#paymenttable").textContent = "";
+    }
+
+    function payment2fun() {
+      document.querySelector("#paymenttable").textContent = "";
+      var tr = document.createElement("tr");
+      var cardno = document.createElement("input");
+      cardno.setAttribute("id", "cardno");
+      cardno.setAttribute("placeholder", "Card number");
+      cardno.setAttribute("type", "number");
+      var cardname = document.createElement("input");
+      cardname.setAttribute("placeholder", "Name on card");
+      cardname.setAttribute("id", "cardname");
+      var div1 = document.createElement("div");
+      div1.setAttribute("id", "inputdiv");
+      var date = document.createElement("input");
+      date.setAttribute("type", "date");
+      date.setAttribute("placeholder", "Expiration date (MM/YY)");
+      var seccode = document.createElement("input");
+      seccode.setAttribute("placeholder", "Security code");
+      div1.append(date, seccode);
+      tr.append(cardno, cardname, div1);
+      document.querySelector("#paymenttable").append(tr);
+    }
+
+    var inputDiv = document.getElementById("billingadd");
+    function billing1fun() {
+      inputDiv.style.display = "none";
+    }
+
+    function billing2fun() {
+      inputDiv.style.display = "flex";
+    }
+  </script>
+</html>

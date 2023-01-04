@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer information - bluemercury - Checkout</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+        margin-top: 50px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      }
+      #footer {
+        width: 50%;
+        margin: auto;
+      }
+      input {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+      }
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+      }
+      input[type="submit"] {
+        background-color: rgb(18, 40, 76);
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        border: none;
+
+        margin-left: auto;
+      }
+      #names {
+        display: flex;
+      }
+      #names > input {
+        width: 100%;
+      }
+      #place {
+        display: flex;
+      }
+      #place > input {
+        width: 100%;
+      }
+      #links {
+        display: flex;
+        width: 40%;
+        margin: auto;
+        margin-top: 30px;
+      }
+      #submitdiv {
+        display: flex;
+        justify-content: space-between;
+      }
+      #submitdiv + a {
+        padding-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/blm-checkout-logo.png?129696"
+        alt=""
+      />
+      <div id="links">
+        <div><a href="ProductPage.html"> Cart &nbsp &nbsp > </a></div>
+        <div>
+          <a href="CustomerInfoPage.html"> &nbsp &nbsp Customer Information</a>
+        </div>
+      </div>
+      <form>
+        <h3>Contact information</h3>
+        <input type="email" id="email" placeholder="Email" />
+        <div>
+          <input type="checkbox" id="offers" name="offers" />
+          <label for="offers"> Email me with news and offers</label>
+        </div>
+        <h3>Shipping address</h3>
+        <input type="text" id="country" placeholder="Country/Region" />
+        <div id="names">
+          <input type="text" id="firstname" placeholder="First name" />
+
+          <input type="text" id="lastname" placeholder="Last name" />
+        </div>
+
+        <input type="text" id="address1" placeholder="Address" />
+        <input
+          type="text"
+          id="address2"
+          placeholder="Apartment, suite, etc. (optional)"
+        />
+        <div id="place">
+          <input type="text" id="city" placeholder="City" />
+          <input type="text" id="state" placeholder="State" />
+          <input type="number" id="pincode" placeholder="Pincode" />
+        </div>
+        <div>
+          <input type="checkbox" id="save" name="save" />
+          <label for="save"> Save this information for next time</label>
+        </div>
+        <p>By continuing, you agree to Bluemercury's Privacy Practices.</p>
+        <div id="submitdiv">
+          <a href="ProductPage.html">
+            <span>&nbsp < &nbsp </span> RETURN TO CART</a
+          >
+          <input type="submit" value="CONTINUE TO SHIPPING METHOD" />
+        </div>
+      </form>
+      <div id="footer">
+        <hr />
+        <p>All rights reserved bluemercury</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    document
+      .querySelector("form")
+      .addEventListener("submit", storecustomerinfo);
+    var customerdata = JSON.parse(localStorage.getItem("customer-data")) || [];
+    function storecustomerinfo() {
+      event.preventDefault();
+      obj = {
+        email: document.getElementById("email").value,
+        country: document.getElementById("country").value,
+        firstname: document.getElementById("firstname").value,
+        lastname: document.getElementById("lastname").value,
+        address1: document.getElementById("address1").value,
+        address2: document.getElementById("address2").value,
+        city: document.getElementById("city").value,
+        state: document.getElementById("state").value,
+        pincode: document.getElementById("pincode").value,
+      };
+      customerdata.push(obj);
+      localStorage.setItem("customer-data", JSON.stringify(customerdata));
+      window.location.href = "./shippingmethod.html";
+    }
+  </script>
+</html>

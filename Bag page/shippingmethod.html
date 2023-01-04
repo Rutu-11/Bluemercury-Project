@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipping method - bluemercury - Checkout</title>
+    <style>
+      #parent {
+        width: 80%;
+        margin: auto;
+      }
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+      }
+      #links {
+        display: flex;
+        width: 40%;
+        margin: auto;
+        margin-top: 30px;
+      }
+      table {
+        border: 1px solid black;
+        width: 80%;
+        margin: auto;
+        height: 80%;
+      }
+      td {
+        padding: 20px;
+      }
+      h3 {
+        width: 80%;
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 40px;
+      }
+      #submitdiv {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        margin: auto;
+        margin-top: 50px;
+      }
+      #submitdiv + a {
+        padding-top: 30px;
+      }
+      input[type="submit"] {
+        background-color: rgb(18, 40, 76);
+        color: white;
+        cursor: pointer;
+        font-weight: bolder;
+        font-size: 15px;
+        border: none;
+        padding: 25px;
+        margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/blm-checkout-logo.png?129696"
+        alt=""
+      />
+      <div id="links">
+        <div><a href="ProductPage.html"> Cart &nbsp &nbsp > </a></div>
+        <div>
+          <a href="CustomerInfoPage.html">
+            &nbsp &nbsp Customer Information &nbsp &nbsp ></a
+          >
+        </div>
+        <div>
+          <a href="shippingmethod.html">
+            &nbsp &nbsp Shipping method &nbsp &nbsp ></a
+          >
+        </div>
+      </div>
+      <h3>Contact Information</h3>
+      <table>
+        <tbody>
+          <tr id="boxtr"></tr>
+          <tr id="shiptotr"></tr>
+        </tbody>
+      </table>
+      <h3>Shipping method</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                value="1"
+                id="type_radio_1"
+                name="type_radio"
+                type="radio"
+              />
+            </td>
+            <td>Ground Shipping (7-10 days)</td>
+            <td>Free</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                value="2"
+                id="type_radio_2"
+                name="type_radio"
+                type="radio"
+              />
+            </td>
+            <td>Two-Day Shipping (Excludes PO Box or APO/FPO)</td>
+            <td>$10.00</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="submitdiv">
+        <a href="CustomerInfoPage.html">
+          <span>&nbsp < &nbsp </span> RETURN TO INFORMATION</a
+        >
+        <a href="paymentmethod.html">
+          <input type="submit" value="CONTINUE TO PAYMENT" />
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var customerdata = JSON.parse(localStorage.getItem("customer-data")) || [];
+  document.querySelector("#type_radio_1").addEventListener("click", method1fun);
+  document.querySelector("#type_radio_2").addEventListener("click", method2fun);
+  var obj = customerdata[customerdata.length - 1];
+  displayinfo();
+  console.log(obj);
+  function displayinfo() {
+    var contact = document.createElement("td");
+    contact.textContent = "Contact";
+    var contacttext = document.createElement("td");
+    contacttext.textContent = obj.email;
+    var change1 = document.createElement("td");
+    var anchor1 = document.createElement("a");
+    anchor1.textContent = "change";
+    anchor1.setAttribute("href", "./CustomerInfoPage.html");
+    change1.append(anchor1);
+    document.querySelector("#boxtr").append(contact, contacttext, change1);
+    var shiptotr = document.createElement("tr");
+    var shipto = document.createElement("td");
+    shipto.textContent = "Ship to";
+    var shiptotext = document.createElement("td");
+    shiptotext.textContent =
+      obj.address1 +
+      "," +
+      " " +
+      obj.city +
+      " " +
+      obj.state +
+      " " +
+      obj.pincode +
+      "," +
+      " " +
+      obj.country;
+    var change2 = document.createElement("td");
+    var anchor2 = document.createElement("a");
+    anchor2.textContent = "change";
+    anchor2.setAttribute("href", "./CustomerInfoPage.html");
+    change2.append(anchor2);
+    document.querySelector("#shiptotr").append(shipto, shiptotext, change2);
+  }
+
+  var totalprice = JSON.parse(localStorage.getItem("total-price"));
+  function method1fun() {
+    localStorage.setItem("method", "Ground Shipping (7-10 days)");
+  }
+
+  function method2fun() {
+    totalprice = Number(totalprice) + Number(10);
+    localStorage.setItem("total-price", totalprice);
+    localStorage.setItem(
+      "method",
+      "Two-Day Shipping (Excludes PO Box or APO/FPO)"
+    );
+  }
+</script>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProductPage</title>
+    <style>
+      #parent {
+        width: 80%;
+        margin: auto;
+        color: rgb(102, 102, 102);
+        font-family: "Montserrat Regular", sans-serif;
+      }
+      h1 {
+        padding-bottom: 20px;
+        color: rgb(18, 40, 76);
+      }
+      table {
+        width: 100%;
+      }
+      #td1 {
+        display: flex;
+      }
+      img {
+        width: 100px;
+      }
+      th {
+        text-align: left;
+        border-bottom: 1px solid rgb(127, 134, 140);
+        padding: 10px;
+      }
+      td {
+        border-bottom: 1px solid rgb(127, 134, 140);
+        padding: 10px;
+      }
+      #totalfooter {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+      }
+      #totalfooter > button {
+        width: 30%;
+        margin-left: auto;
+      }
+      #gifts {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 80px;
+        border-top: 1px solid rgb(127, 134, 140);
+        padding-top: 20px;
+      }
+      #gifts > div {
+        display: flex;
+      }
+      #gifts > div > p {
+        padding-top: -10px;
+        padding-left: 20px;
+      }
+      #gifts > div > button {
+        background-color: white;
+        border: none;
+        padding-bottom: 60px;
+        text-decoration: underline;
+        color: rgb(102, 102, 102);
+        cursor: pointer;
+      }
+      #removebtn > button {
+        border: none;
+        text-decoration: underline;
+        background-color: white;
+        color: rgb(102, 102, 102);
+        cursor: pointer;
+      }
+      #qty {
+        border-left: none;
+        border-right: none;
+        background-color: white;
+      }
+      label + p {
+        padding-left: 22px;
+        padding-bottom: 20px;
+      }
+      a > button {
+        background-color: rgb(18, 40, 76);
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bolder;
+        border: none;
+        margin-left: auto;
+        padding: 15px;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <h1>YOUR BAG</h1>
+      <h3>Your cart(<span id="items">0</span> item)</h3>
+      <div>
+        <input type="checkbox" id="giftcheckbox" name="giftcheckbox" />
+        <label for="giftcheckbox"> IS THIS ORDER A GIFT?</label>
+        <p>The price of your order will be hidden on the gift receipt.</p>
+      </div>
+      <table id="tableId">
+        <thead>
+          <tr>
+            <th>Ready to Ship</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Append your data here  -->
+        </tbody>
+      </table>
+      <h3>Our Gift to You</h3>
+      <p>Free trial-size products with your qualifying purchase</p>
+      <div id="gifts">
+        <div>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/free-surprise-samples-main_1_small.jpg?v=1668719018"
+            alt=""
+          />
+          <button>Add 3 Samples</button>
+        </div>
+        <div>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0283/0185/2747/products/surprise-mystery-samples-1_1.jpg?v=1668695719"
+            alt=""
+          />
+          <p>SURPRISE #1</p>
+        </div>
+        <div>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0283/0185/2747/products/surprise-mystery-samples-1_1.jpg?v=1668695719"
+            alt=""
+          />
+          <p>SURPRISE #2</p>
+        </div>
+        <div>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0283/0185/2747/products/surprise-mystery-samples-1_1.jpg?v=1668695719"
+            alt=""
+          />
+          <p>SURPRISE #3</p>
+        </div>
+      </div>
+      <div id="totalfooter">
+        <h3>Subtotal $<span id="total">0</span></h3>
+        <p>
+          Shipping, Taxes, Beauty Cards, and additional discounts applied at
+          checkout
+        </p>
+        <a href="./CustomerInfoPage.html">
+          <button>CHECKOUT</button>
+        </a>
+      </div>
+    </div>
+  </body>
+  <script>
+    var cart = [
+      {
+        id: 1,
+        img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-5060552905975-1_240x240.jpg?v=1671541617",
+        name: "AUGUSTINUS BADER",
+        desc: "The Hydration Heroes With The Rich Cream",
+        price: "325",
+        qty: 1,
+      },
+      {
+        id: 2,
+        img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-7649990366029-1_240x240.jpg?v=1671325105",
+        name: "VVARDIS",
+        desc: "New White Enamel Anti-Aging Serum",
+        price: "100",
+        qty: 1,
+      },
+      {
+        id: 3,
+        img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-3700458602937-1_240x240.jpg?v=1672420173",
+        name: "MEMO PARIS",
+        desc: "French Leather Eau de Parfum",
+        price: "325",
+        qty: 1,
+      },
+      {
+        id: 4,
+        img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-817237011958-1_240x240.jpg?v=1671800868",
+        name: "M-61",
+        desc: "Vitablast C® 30% Serum Concentrate",
+        price: "325",
+        qty: 1,
+      },
+    ];
+
+    //display function
+    localStorage.setItem("cart-items", JSON.stringify(cart));
+    var data = JSON.parse(localStorage.getItem("cart-items")) || [];
+    var totalprice = 0;
+    displaycart(data);
+    function displaycart(arr) {
+      totalprice = 0;
+      document.querySelector("tbody").textContent = "";
+      arr.map(function (elem, ind) {
+        var tr = document.createElement("tr");
+        var td1 = document.createElement("td");
+        var div = document.createElement("div");
+        div.setAttribute("id", "td1");
+        var img = document.createElement("img");
+        img.setAttribute("src", elem.img);
+        var div2 = document.createElement("div");
+        var name = document.createElement("p");
+        name.textContent = elem.name;
+        var desc = document.createElement("p");
+        desc.textContent = elem.desc;
+        div2.append(name, desc);
+        div.append(img, div2);
+        td1.append(div);
+        var td2 = document.createElement("td");
+        td2.innerText = elem.price;
+        var td3 = document.createElement("td");
+        var plus = document.createElement("button");
+        plus.innerText = "+";
+        plus.addEventListener("click", function () {
+          plusfunc(elem, ind);
+        });
+        var qty = document.createElement("button");
+        qty.setAttribute("id", "qty");
+        qty.innerText = elem.qty;
+        var minus = document.createElement("button");
+        minus.innerText = "-";
+        minus.addEventListener("click", function () {
+          minusfunc(elem, ind);
+        });
+        var div = document.createElement("div");
+        div.setAttribute("id", "removebtn");
+        var remove = document.createElement("button");
+        remove.innerText = "Remove";
+        remove.addEventListener("click", function () {
+          removefunc(elem, ind);
+        });
+        div.append(remove);
+        td3.append(plus, qty, minus, div);
+        var td4 = document.createElement("td");
+        var prodprice = Number(elem.price) * Number(elem.qty);
+        td4.innerText = "$" + prodprice;
+        totalprice += prodprice;
+        document.querySelector("#total").innerText = totalprice;
+        localStorage.setItem("total-price", JSON.stringify(totalprice));
+        tr.append(td1, td2, td3, td4);
+        document.querySelector("tbody").append(tr);
+        var table = document.getElementById("tableId");
+        var items = table.tBodies[0].rows.length;
+        document.querySelector("#items").innerText = items;
+      });
+    }
+
+    //Plus function
+    function plusfunc(elem, ind) {
+      elem.qty = Number(elem.qty) + 1;
+      localStorage.setItem("cart-items", JSON.stringify(data));
+      displaycart(data);
+    }
+
+    //minus function
+    function minusfunc(elem, ind) {
+      if (elem.qty == 1) {
+        removefunc(elem, ind);
+      }
+      elem.qty = Number(elem.qty) - 1;
+      localStorage.setItem("cart-items", JSON.stringify(data));
+      displaycart(data);
+    }
+
+    //remove function
+    function removefunc(elem, ind) {
+      data.splice(ind, 1);
+      localStorage.setItem("cart-items", JSON.stringify(data));
+      displaycart(data);
+    }
+  </script>
+</html>
