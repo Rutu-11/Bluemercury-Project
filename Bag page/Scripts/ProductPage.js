@@ -119,3 +119,18 @@ function removefunc(elem, ind) {
   localStorage.setItem("cart-items", JSON.stringify(data));
   displaycart(data);
 }
+
+//samples function
+localStorage.setItem("samples",false)
+document.querySelector("#samples").addEventListener("click",samplefunc)
+function samplefunc(){
+  event.preventDefault()
+  if(document.querySelector("#samples").innerText=="Remove 3 samples"){
+    localStorage.setItem("samples",false)
+    document.querySelector("#samples").innerText="Add 3 Samples"
+  }
+  else{
+    localStorage.setItem("samples",true)
+    document.querySelector("#samples").innerText="Remove 3 samples"
+  }
+}

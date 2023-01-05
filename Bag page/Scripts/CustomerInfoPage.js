@@ -24,6 +24,7 @@ document
       window.location.href = "./shippingmethod.html";
     }
     var data = JSON.parse(localStorage.getItem("cart-items")) || [];
+    var samples=JSON.parse(localStorage.getItem("samples"))
     displaycart(data);
     function displaycart(arr) {
       document.querySelector("tbody").textContent = "";
@@ -51,19 +52,45 @@ document
         document.querySelector("tbody").append(tr);
       });
     }
+    if(samples==true){
+      var tr = document.createElement("tr");
+      var td3 = document.createElement("td");
+      var samplediv=document.createElement("div")
+      samplediv.setAttribute("id", "td2");
+      var sampleimg=document.createElement("img")
+      sampleimg.setAttribute("id", "sampleimg");
+      sampleimg.setAttribute("src","https://cdn.shopify.com/s/files/1/0283/0185/2747/products/surprise-mystery-samples-1_1.jpg?v=1668695719")
+      var div3 = document.createElement("div");
+      div3.setAttribute("id", "sampletext");
+      var blue = document.createElement("p");
+      blue.textContent = "Bluemercury";
+      var mystery = document.createElement("p");
+      mystery.textContent = "3 MYSTERY SAMPLES";
+      div3.append(blue, mystery);
+      samplediv.append(sampleimg, div3);
+      td3.append(samplediv);
+      var td4 = document.createElement("td");
+       td4.innerText="FREE"
+      tr.append(td3,td4);
+        document.querySelector("tbody").append(tr);
+    }
     document.querySelector("#promobutton").addEventListener("click", promofunc);
     function promofunc() {
       event.preventDefault();
       var promo = document.querySelector("#promocode");
-      if (promo.value != "") {
-        promo.value = "";
-      }
+      
       if (promo.value == "blue20") {
         alert("20% off on your bag");
         totalprice = (totalprice - totalprice * 0.2).toFixed(0);
         document.querySelector("#subtot").textContent = "$" + totalprice;
         document.querySelector("#totprice").textContent = "USD $" + totalprice;
+        if (promo.value != "") {
+          promo.value = "";
+        }
       } else {
         alert("Invalid Promo Code");
+        if (promo.value != "") {
+          promo.value = "";
+        }
       }
     }
