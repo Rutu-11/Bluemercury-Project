@@ -10567,12 +10567,7 @@ localStorage.setItem("mainProducts", JSON.stringify(All));
 var PageProducts = All.filter((element) => {
   return element.pageCategory === "NEW";
 });
-console.log(PageProducts);
-
-PageProducts.forEach((element) => {
-  if (element.merchbadge1 === "CONSCIOUS BEAUTY") {
-  }
-});
+// console.log(PageProducts);
 displayProducts(PageProducts);
 
 // Display function
@@ -10584,7 +10579,7 @@ function displayProducts(arr) {
     container.innerHTML += `
     <div class="product-container>
         <i class=""></i>     
-        <p class="head">${element.merchbadge}<i class="fa-solid fa-heart" onclick="whistlist(PageProducts[${index}])"></i></p>
+        <p class="head">${element.merchbadge}<i class="fa-solid fa-2x fa-heart" id="heart${index}" onclick="whistlist(PageProducts[${index}], ${index})"></i></p>
         <p>${element.merchbadge1}</p>     
         <img src="${element.Image}" alt="${element.Title}" class="image"/>
         <h3>${element.productcard__brand}</h3>
@@ -10596,7 +10591,8 @@ function displayProducts(arr) {
   });
 }
 //Addding to Whistlist
-function whistlist(element) {
+function whistlist(element, ind) {
+  document.getElementById("heart" + ind).style.color = "red";
   console.log(element);
 }
 
