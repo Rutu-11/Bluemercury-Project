@@ -119,6 +119,9 @@
     margin-left: 50px;
     margin-right: 30px;
   }
+  #qty{
+    width: 20%;
+  }
   #cartottable {
     width: 70%;
   }

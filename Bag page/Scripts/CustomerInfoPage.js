@@ -45,10 +45,13 @@ document
         div2.append(name, desc);
         div.append(img, div2);
         td1.append(div);
-        var td2 = document.createElement("td");
+        var td2=document.createElement("td");
+        td2.innerText="QTY - "+ elem.qty
+        td2.setAttribute("id","qty")
+        var td3 = document.createElement("td");
         var prodprice = Number(elem.price) * Number(elem.qty);
-        td2.innerText = "$" + prodprice;
-        tr.append(td1, td2);
+        td3.innerText = "$" + prodprice;
+        tr.append(td1, td2,td3);
         document.querySelector("tbody").append(tr);
       });
     }
@@ -69,9 +72,11 @@ document
       div3.append(blue, mystery);
       samplediv.append(sampleimg, div3);
       td3.append(samplediv);
-      var td4 = document.createElement("td");
-       td4.innerText="FREE"
-      tr.append(td3,td4);
+      var td4=document.createElement("td");
+      td4.innerText=""
+      var td5 = document.createElement("td");
+       td5.innerText="FREE"
+      tr.append(td3,td4,td5);
         document.querySelector("tbody").append(tr);
     }
     document.querySelector("#promobutton").addEventListener("click", promofunc);

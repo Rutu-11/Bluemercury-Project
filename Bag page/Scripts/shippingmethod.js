@@ -80,24 +80,24 @@ function displaycart(arr) {
     div2.append(name, desc);
     div.append(img, div2);
     td1.append(div);
-    var td2 = document.createElement("td");
+    var td2=document.createElement("td");
+    td2.innerText="QTY - "+ elem.qty
+    td2.setAttribute("id","qty")
+    var td3 = document.createElement("td");
     var prodprice = Number(elem.price) * Number(elem.qty);
-    td2.innerText = "$" + prodprice;
-    tr.append(td1, td2);
+    td3.innerText = "$" + prodprice;
+    tr.append(td1, td2,td3);
     document.querySelector("#carttablebody").append(tr);
   });
 }
 if (samples == true) {
   var tr = document.createElement("tr");
   var td3 = document.createElement("td");
-  var samplediv = document.createElement("div");
+  var samplediv=document.createElement("div")
   samplediv.setAttribute("id", "td2");
-  var sampleimg = document.createElement("img");
+  var sampleimg=document.createElement("img")
   sampleimg.setAttribute("id", "sampleimg");
-  sampleimg.setAttribute(
-    "src",
-    "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/surprise-mystery-samples-1_1.jpg?v=1668695719"
-  );
+  sampleimg.setAttribute("src","https://cdn.shopify.com/s/files/1/0283/0185/2747/products/surprise-mystery-samples-1_1.jpg?v=1668695719")
   var div3 = document.createElement("div");
   div3.setAttribute("id", "sampletext");
   var blue = document.createElement("p");
@@ -107,9 +107,11 @@ if (samples == true) {
   div3.append(blue, mystery);
   samplediv.append(sampleimg, div3);
   td3.append(samplediv);
-  var td4 = document.createElement("td");
-  td4.innerText = "FREE";
-  tr.append(td3, td4);
+  var td4=document.createElement("td");
+  td4.innerText=""
+  var td5 = document.createElement("td");
+   td5.innerText="FREE"
+  tr.append(td3,td4,td5);
   document.querySelector("#carttablebody").append(tr);
 }
 document.querySelector("#promobutton").addEventListener("click", promofunc);
