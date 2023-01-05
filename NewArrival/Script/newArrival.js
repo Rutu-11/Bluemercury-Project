@@ -10553,15 +10553,82 @@ var pageCategory = [
   "Tools&Accessories",
   "NEW",
 ];
+var type = [
+  "After Sun Care",
+  "Body Wash",
+  "Brush Sets",
+  "Conditioners",
+  "Curling Irons",
+  "Diffusers",
+  "Exercise Bands",
+  "Eye Creams",
+  "Eye Palette",
+  "Face Mask",
+  "Face Wash",
+  "Hair Oil",
+  "Hair Serums",
+  "Lipstick",
+  "Shampoo",
+];
 
-All.map((element) => {
+var brand = [
+  "Bumble And Bumble",
+  "M-61",
+  "Ourself",
+  "Seen",
+  "SkinCeuticals",
+  "Seen",
+  "Bumble And Bumble",
+  "M-61",
+];
+var concern = [
+  "Acne And Blemishes",
+  "Black Heads And Visible Pores",
+  "Dullness",
+  "Fine Lines And Wrinkles",
+  "Loss Of Firmness",
+  "Rough/Bumpy Skin",
+  "Sun Damage",
+];
+
+var size = [
+  "Jumbo And Value Size",
+  "Travel Size",
+  "Classic",
+  "Votive",
+  "Classic",
+  "Jumbo And Value Size",
+  "Votive",
+  "Classic",
+];
+
+var ingredient = [
+  "Naturally Derived",
+  "Retinols",
+  "Bakuchiol",
+  "Salicylic Acid",
+  "Vitamin B5",
+  "Bakuchiol",
+  "Retinols",
+  "Vitamin B5",
+];
+All.forEach((element) => {
   let id = Math.round(Math.random() * 7);
   return (
     (element.merchbadge1 = merchbadge1[id]),
     (element.pageCategory = pageCategory[id]),
-    (element.merchbadge = merchbadge[id])
+    (element.merchbadge = merchbadge[id]),
+    (element.concern = concern[id]),
+    (element.size = size[id]),
+    (element.ingredient = ingredient[id]),
+    (element.productcard__brand = brand[id])
   );
 });
+All.map((element) => {
+  let id = Math.round(Math.random() * 15);
+  return (element.type = type[id]);
+});
+
 localStorage.setItem("mainProducts", JSON.stringify(All));
 
 var PageProducts = All.filter((element) => {
@@ -10572,6 +10639,9 @@ displayProducts(PageProducts);
 
 // Display function
 function displayProducts(arr) {
+  if (arr.length > 24) {
+    arr = arr.splice(0, 24);
+  }
   document.getElementById("container").innerHTML = "";
   arr.map((element, index) => {
     const container = document.getElementById("container");
@@ -10579,7 +10649,7 @@ function displayProducts(arr) {
     container.innerHTML += `
     <div class="product-container>
         <i class=""></i>     
-        <p class="head">${element.merchbadge}<i class="fa-solid fa-2x fa-heart" id="heart${index}" onclick="whistlist(PageProducts[${index}], ${index})"></i></p>
+        <p class="head">${element.merchbadge}<i class="fa-solid fa-2x fa-heart" id="heart${index}" onclick="wishlist(PageProducts[${index}], ${index})"></i></p>
         <p>${element.merchbadge1}</p>     
         <img src="${element.Image}" alt="${element.Title}" class="image"/>
         <h3>${element.productcard__brand}</h3>
@@ -10591,9 +10661,16 @@ function displayProducts(arr) {
   });
 }
 //Addding to Whistlist
-function whistlist(element, ind) {
+function wishlist(element, ind) {
+  const newWhistlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  if (element.wishlist !== undefined) {
+    alert("Product already in Wishlist");
+  } else {
+    element.wishlist = ind;
+    newWhistlist.push(element);
+  }
   document.getElementById("heart" + ind).style.color = "red";
-  console.log(element);
+  localStorage.setItem("wishlist", JSON.stringify(newWhistlist));
 }
 
 //Display Left Container
@@ -10604,7 +10681,6 @@ function displayCategories(arr) {
           <div>
             <h1>${PageName} CATEGORY</h1>
             <p>Select One to narrow results</p>
-            <hr>
           </div>
             <p class="category-name"><a href="${pageCategory[0]}.html">${pageCategory[0]}</a></p>
             <p class="category-name"><a href="${pageCategory[1]}.html">${pageCategory[1]}</a></p>
@@ -10614,6 +10690,68 @@ function displayCategories(arr) {
             <p class="category-name"><a href="${pageCategory[5]}.html">${pageCategory[5]}</a></p>
 
       </div>
+      <h1>FILTER ${PageName} BY</h1>
+        <div class="slection">
+          <select name="" id="type-filter" class="select">
+          <option selected disable>Type</option>
+            <option value="After Sun Care">After Sun Care</option>
+            <option value="Body Wash">Body Wash</option>
+            <option value="Brush Sets">Brush Sets</option>
+            <option value="Conditioners">Conditioners</option>
+            <option value="Curling Irons">Curling Irons</option>
+            <option value="Diffusers">Diffusers</option>
+            <option value="Exercise Bands">Exercise Bands</option>
+            <option value="Eye Creams">Eye Creams</option>
+            <option value="Eye Palette">Eye Palette</option>
+            <option value="Face Mask">Face Mask</option>
+            <option value="Face Wash">Face Wash</option>
+            <option value="Hair Oil">Hair Oil</option>
+            <option value="Hair Serums">Hair Serums</option>
+            <option value="Lipstick">Lipstick</option>
+            <option value="Shampoo">Shampoo</option>
+          </select>
+        </div>
+        <div class="slection">
+          <select name="" id="brand-filter" class="select">
+          <option selected disable >Brand</option>
+            <option value="Bumble And Bumble">Bumble And Bumble</option>
+            <option value="M-61">M-61</option>
+            <option value="Ourself">Ourself</option>
+            <option value="Seen">Seen</option>
+            <option value="SkinCeuticals">SkinCeuticals</option>
+          </select>
+        </div>
+        <div class="slection">
+          <select name="" id="concern-filter" class="select">
+          <option selected disable >Concern</option>
+            <option value="Acne And Blemishes">Acne And Blemishes</option>
+            <option value="Black Heads And Visible Pores">Black Heads And Visible Pores</option>
+            <option value="Dullness">Dullness</option>
+            <option value="Fine Lines And Wrinkles">Fine Lines And Wrinkles</option>
+            <option value="Loss Of Firmness">Loss Of Firmness</option>
+            <option value="Rough/Bumpy Skin">Rough/Bumpy Skin</option>
+            <option value="Sun Damage">Sun Damage</option>
+          </select>
+        </div>
+        <div class="slection">
+          <select name="" id="size-filter" class="select">
+          <option selected disable>Size</option>
+            <option value="Jumbo And Value Size">Jumbo And Value Size</option>
+            <option value="Travel Size">Travel Size</option>
+            <option value="Classic">Classic</option>
+            <option value="Votive">Votive</option>
+          </select>
+        </div>
+        <div class="slection">
+          <select name="" id="ingredient-filter" class="select">
+          <option selected disable >Ingredient Preference</option>
+            <option value="Naturally Derived">Naturally Derived</option>
+            <option value="Retinols">Retinols</option>
+            <option value="Bakuchiol">Bakuchiol</option>
+            <option value="Salicylic Acid">Salicylic Acid</option>
+            <option value="Vitamin B5">Vitamin B5</option>
+          </select>
+        </div>
 
 `;
 }
@@ -10652,4 +10790,60 @@ filter.addEventListener("change", () => {
     }
     displayProducts(newProductArray);
   }
+});
+
+//Left Side Filter
+
+let typefilter = document.getElementById("type-filter");
+typefilter.addEventListener("change", () => {
+  let value = typefilter.value;
+  let newArray = PageProducts;
+  newArray = All.filter((element) => {
+    return element.type === value;
+  });
+  displayProducts(newArray);
+});
+
+let brandfilter = document.getElementById("brand-filter");
+brandfilter.addEventListener("change", () => {
+  let value = brandfilter.value;
+  let newArray = PageProducts;
+  newArray = All.filter((element) => {
+    return element.productcard__brand === value;
+  });
+  displayProducts(newArray);
+});
+
+let concernfilter = document.getElementById("concern-filter");
+concernfilter.addEventListener("change", () => {
+  let value = concernfilter.value;
+  let newArray = PageProducts;
+  newArray = All.filter((element) => {
+    return element.concern === value;
+  });
+  displayProducts(newArray);
+});
+
+let sizefilter = document.getElementById("size-filter");
+sizefilter.addEventListener("change", () => {
+  let value = sizefilter.value;
+  console.log(value);
+  let newArray = PageProducts;
+  newArray = All.filter((element) => {
+    return element.size === value;
+  });
+  console.log(newArray);
+  displayProducts(newArray);
+});
+
+let ingredientfilter = document.getElementById("ingredient-filter");
+ingredientfilter.addEventListener("change", () => {
+  let value = ingredientfilter.value;
+  console.log(value, PageProducts);
+  let newArray = PageProducts;
+  newArray = All.filter((element) => {
+    return element.ingredient === value;
+  });
+  console.log(newArray);
+  displayProducts(newArray);
 });
