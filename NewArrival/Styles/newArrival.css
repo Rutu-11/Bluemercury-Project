@@ -12,3 +12,10 @@
 .image {
   width: 100%;
 }
+.fa-solid {
+  width: 30%;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+}
