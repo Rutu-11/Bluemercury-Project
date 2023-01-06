@@ -54,6 +54,23 @@ body {
 
 /* Main */
 
+.helpFaqHeading {
+  text-align: center;
+  background-color: #f9fdff;
+  border-bottom: 1px solid lightgrey;
+  padding: 20px 0 20px 0;
+}
+
+.helpFaq {
+  width: 40%;
+  margin: auto;
+  padding: 50px 0 50px 0;
+}
+
+.helpFaq > p > a {
+  color: black;
+}
+
 /* Footer Part */
 .eventBox {
   display: flex;

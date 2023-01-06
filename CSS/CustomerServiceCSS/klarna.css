@@ -54,6 +54,47 @@ body {
 
 /* Main */
 
+/* .poster {
+  display: flex;
+} */
+
+.posterImg {
+  position: relative;
+}
+
+.imgText {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  left: 16px;
+  top: 50%;
+  justify-content: center;
+  width: 32%;
+  margin: 0;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.imgText > :first-child {
+  font-size: 60px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.posterImg > img {
+  width: 100%;
+}
+/* Main */
+
+.klaraContent {
+  width: 40%;
+  margin: auto;
+  margin-top: 70px;
+}
+
+.klaraContent > div {
+  padding-bottom: 50px;
+}
+
 /* Footer Part */
 .eventBox {
   display: flex;
@@ -123,4 +164,19 @@ body {
   font-size: 13px;
   text-decoration: none;
   padding-bottom: 5px;
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1080px) {
+  .imgText {
+    font-size: 0px;
+  }
+}
+
+@media only screen and (min-width: 420px) and (max-width: 600px) {
+  .imgText {
+    font-size: 0px;
+  }
+  .imgText > :first-child {
+    font-size: 30px;
+  }
 }

@@ -53,6 +53,22 @@ body {
 }
 
 /* Main */
+.termsHeading {
+  text-align: center;
+  background-color: #f9fdff;
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.termsContent {
+  width: 600px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.termsContent > div {
+  padding-bottom: 30px;
+}
 
 /* Footer Part */
 .eventBox {

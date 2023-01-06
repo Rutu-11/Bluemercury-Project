@@ -53,6 +53,71 @@ body {
 }
 
 /* Main */
+.diversityHeading {
+  background-color: #12284c;
+  padding: 30px;
+}
+
+.diversityHeading > div {
+  width: 600px;
+  color: white;
+  margin: auto;
+}
+
+.di {
+  padding: 0;
+  font-size: 45px;
+}
+
+.FPP {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 60px 0 0 0;
+  justify-content: space-evenly;
+}
+
+.FPP > div {
+  width: 600px;
+}
+
+.FifteenPercentPledge {
+  width: 100%;
+  height: 460px;
+}
+
+.FppText {
+  padding-top: 10%;
+}
+
+.igc {
+  margin: auto;
+  text-align: center;
+  width: 400px;
+  padding-top: 50px;
+}
+
+.igcImage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 30px 80px 100px 80px;
+  border-bottom: 1px solid lightgray;
+}
+
+.igcImage > div {
+  width: 300px;
+  height: 300px;
+}
+
+.igcImage > div > img {
+  width: 100%;
+  height: 100%;
+}
+
+.igcImage > div > p {
+  padding: 20px;
+  text-align: center;
+}
 
 /* Footer Part */
 .eventBox {

@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SPA Menu</title>
-    <link rel="stylesheet" href="/Bluemercury-Project/CSS/spaMenu.css" />
+    <title>Gift Card Balance</title>
+    <link
+      rel="stylesheet"
+      href="/Bluemercury-Project/CSS/myAccountCSS/giftWallet.css"
+    />
     <script
       src="https://kit.fontawesome.com/8d89aabedd.js"
       crossorigin="anonymous"
@@ -19,7 +22,7 @@
   </head>
   <body>
     <main>
-      <div id="spaHeader">
+      <div id="blueRewardHeader">
         <div>
           <i class="fa-solid fa-location-dot"></i> Store and Spa Locater
         </div>
@@ -51,65 +54,58 @@
           >Free gifts with Purchase. Browse Now ></a
         >
       </div>
-      <div class="bmSpa">
-        <h1>BLUEMERCURY SPA</h1>
+
+      <!-- Main -->
+
+      <div class="giftCard">
+        <h2>GIFT CARD BALANCE</h2>
+      </div>
+      <div class="gcDiv">
+        <div class="in">
+          <div class="formDiv">
+            <h1>Balance Checker</h1>
+            <form action="" class="giftForm">
+              <label for="cardNo"><b>Enter Card Number:</b></label>
+              <input
+                type="text"
+                name="Card Number"
+                id="cardNo"
+                minlength="16"
+                maxlength="16"
+              />
+              <label for="pin"><b>Enter PIN Number (required):</b></label>
+              <input
+                type="password"
+                name="Pin"
+                id="pin"
+                minlength="4"
+                maxlength="4"
+              />
+              <button id="submitGiftForm" onclick="giftBalance()">
+                Submit
+              </button>
+            </form>
+          </div>
+          <div class="cardImgDiv">
+            <p><b>Where can I find my card number?</b></p>
+            <img
+              src="https://clutch-egift.s3.amazonaws.com/cardInstructionUrl_d02ebb99-b630-4622-a9d4-208aa7d5e0bf.png"
+              alt="card"
+            />
+          </div>
+        </div>
+        <div>
+          <h2>&nbsp;<span class="displayBalance"></span></h2>
+        </div>
         <p>
-          Our luxurious spa services are designed using highly effective
-          skincare products and innovative techniques. Each services is
-          customizable to your skin's individual needs.
+          To check your available balance , enter the card number shown on the
+          back of your card. If you require any further information, please
+          refer to the merchant issuing this card and contact them directly.
         </p>
       </div>
-      <div class="spaPdf">
-        <a
-          href="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/Bluemercury_Spa_Menu_082522.pdf?v=1665413041?v=1665412634"
-          target="_blank"
-          >DOWNLOAD SPA MENU</a
-        >
-      </div>
-      <div class="spaService">
-        <div class="content">
-          <h1>Facials</h1>
-          <p>
-            Enjoy targeted customizable facials finished with a signature oxygen
-            therapy.
-          </p>
-          <p>Call your Spa for availability</p>
-        </div>
-        <div>
-          <img
-            src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/spa-facial-content_block_400x400.jpg?v=1614291501"
-            alt="Facial_img"
-          />
-        </div>
-        <div>
-          <img
-            src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/spa-brow-content_block_400x400.jpg?v=1614291501"
-            alt="Body_and_lash_styling_img"
-          />
-        </div>
-        <div class="content">
-          <h1>Brow & Lash Styling</h1>
-          <p>
-            Enhance your eyes, brows or lashes, and ditch your daily makeup
-            routine.
-          </p>
-          <p>Call your Spa for availability</p>
-        </div>
-        <div class="content">
-          <h1>Waxing</h1>
-          <p>
-            Choose from a variety of gentle lycon waxes from Australia. Ask your
-            esthetician which is right for you.
-          </p>
-          <p>Call your Spa for availability</p>
-        </div>
-        <div>
-          <img
-            src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/spa-waxing-content_block_400x400.jpg?v=1614291501"
-            alt="waxing_img"
-          />
-        </div>
-      </div>
+
+      <!-- ?\ Fotter Part -->
+
       <div class="eventBox">
         <div>
           <p><i class="fa-solid fa-gift"></i></p>
@@ -142,6 +138,7 @@
           >
         </div>
       </div>
+
       <div class="footer">
         <div class="form">
           <h3>Get Expert Beauty Insight & Offers</h3>
@@ -277,4 +274,22 @@
       </div>
     </main>
   </body>
+  <script>
+    function giftBalance() {
+      event.preventDefault();
+      var cardNo = document.getElementById("cardNo").value;
+      var pin = document.getElementById("pin").value;
+      var len = cardNo.toString();
+      var pinNo = pin.toString();
+      if (len.length === 16 && pinNo.length === 4) {
+        var x = Math.floor(Math.random() * 10000 + 100);
+        document.querySelector(".displayBalance").textContent =
+          "Your Gift Card Balance is : $" + x;
+      } else {
+        alert("wrong Card No. or Pin");
+      }
+      document.getElementById("cardNo").value = "";
+      document.getElementById("pin").value = "";
+    }
+  </script>
 </html>

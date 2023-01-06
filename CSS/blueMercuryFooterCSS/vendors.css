@@ -53,6 +53,26 @@ body {
 }
 
 /* Main */
+.vendorHeading {
+  text-align: center;
+  padding: 25px;
+  border-bottom: 1px solid lightgray;
+  background-color: #f9fdff;
+}
+
+.vendorContent {
+  width: 600px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.vendorContent > p {
+  font-size: 20px;
+}
+
+.vendorContent > div {
+  margin: 10px 80px 10px 80px;
+}
 
 /* Footer Part */
 .eventBox {

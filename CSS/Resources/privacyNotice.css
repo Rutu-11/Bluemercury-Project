@@ -53,6 +53,49 @@ body {
 }
 
 /* Main */
+.privacyHeading {
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9fdff;
+  border: 1px solid lightgray;
+}
+
+.privacyContent {
+  width: 800px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.privacyContent > div {
+  padding-bottom: 30px;
+  padding: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th,
+td {
+  padding: 10px;
+}
+
+.bottomBorder {
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.myBtn {
+  padding: 13px;
+  margin: 20px 20px 20px 0;
+  cursor: pointer;
+  border-color: lightgray;
+  font-size: 17px;
+}
 
 /* Footer Part */
 .eventBox {

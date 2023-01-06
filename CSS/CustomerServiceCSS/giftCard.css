@@ -53,6 +53,25 @@ body {
 }
 
 /* Main */
+a {
+  color: black;
+}
+.giftCardHeading {
+  text-align: center;
+  background-color: #f9fdff;
+  padding: 30px;
+  border-bottom: 1px solid lightgray;
+}
+
+.giftCardContent {
+  margin: auto;
+  width: 600px;
+  margin-top: 50px;
+}
+
+.giftCardContent > div {
+  padding-bottom: 30px;
+}
 
 /* Footer Part */
 .eventBox {

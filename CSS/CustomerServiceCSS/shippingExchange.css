@@ -53,6 +53,33 @@ body {
 }
 
 /* Main */
+.top {
+  text-align: center;
+  padding: 30px;
+  background-color: #f9fdff;
+  border-bottom: 1px solid lightgray;
+}
+
+.gCBody {
+  margin: auto;
+  width: 600px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.gCBody > div {
+  padding-bottom: 50px;
+}
+
+.shippingTable,
+tr,
+td {
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+  padding: 5px;
+  font-size: 12px;
+  text-align: center;
+}
 
 /* Footer Part */
 .eventBox {
