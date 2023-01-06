@@ -5,52 +5,120 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skin Care</title>
-    <!-- //<link href="../Jquery/javascript.js”> -->
     <style> @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;1,400&family=Open+Sans:ital,wght@0,400;1,700&family=Poppins:ital,wght@0,700;1,100&display=swap'); </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Open+Sans:ital,wght@0,400;1,700&family=Poppins:ital,wght@0,700;1,100&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../CSS/skincare.css">
+<link rel="stylesheet" href="../CSS/Filter.css">;
+
+<script src="https://kit.fontawesome.com/6c1f5c4092.js" crossorigin="anonymous"
+></script>
 </head>
 <body>
+    <div id="products-details">
+
+    </div>
    <div id="outer">
+       <div id ="filter">
         <div id="category">
             <h3>SkinCare Category</h3>
+            <i>Select one of the narrow result</i>
             <hr>
-            <li type="none"><a href="">Cleanser</a></li>
-            <li type="none"><a href="">BestSellers</a></li>
-            <li type="none"><a href="">Exfoliatora & Peels</a></li>
-            <li type="none"><a href="">Eye Care</a></li>
-            <li type="none"><a href="">Gifts</a></li>
-            <li type="none"><a href="">Lip Care</a></li>
-            <li type="none"><a href="">Masks</a></li>
-            <li type="none"><a href="">moisturizers</a></li>
-            <li type="none"><a href="">Sun Care</a></li>
-            <li type="none"><a href="">Tools & Devices</a></li>
-            <li type="none"><a href="">Treatements & Serums</a></li>
-            <li type="none"><a href="">Vitamins & Suppliments</a></li>
-        </div>
-        
-        <div id="skincare">
-        <div>
-            <h3>SKINCARE</h3>
-            <div id="filter">
-            <span>SORT BY</span>
-            <select name="" id="Select">
-                <option value="featured">Featured</option> 
-                <option value="new-arrival">New Arrival</option>
-                <option value="best-seller">Best Seller</option>
-                <option value="low-to-high">Price,Low to High</option>
-                <option value="high-to-low">Price,High-to-Low</option>
-            </select>
-            </div>
+            <ul type="none" id="category">
+                <h3>Cleanser</h3>
+            <li onclick="filterByCategoty()">BestSellers</li>
+            <li onclick="filterByCategoty()">Exfoliatora & Peels</li>
+            <li onclick="filterByCategoty()">Eye Care</li>
+            <li onclick="filterByCategoty()">Gifts</li>
+            <li onclick="filterByCategoty()">Lip Care</li>
+            <li onclick="filterByCategoty()">Masks</li>
+            <li onclick="filterByCategoty()">moisturizers</li>
+            <li onclick="filterByCategoty()">Sun Care</li>
+            <li onclick="filterByCategoty()">Tools & Devices</li>
+            <li onclick="filterByCategoty()">Treatements & Serums</li>
+            <li onclick="filterByCategoty()">Vitamins & Suppliments</li>
+            </ul>
         </div>
 
-            <div  id = 'container'>
-        
+        <div id="brands">
+           <ul type = 'none'><h3>BY BRANDS</h3>
+            <li onclick="fiterByBrand()">All Brands</li>
+            <li onclick="fiterByBrand()">Augustinus Bader</li>
+            <li onclick="fiterByBrand()">Kiehl's Since 1851</li>
+            <li onclick="fiterByBrand()">Dr. Barbara Sturm</li>
+            <li onclick="fiterByBrand()">La Mer</li>
+            <li onclick="fiterByBrand()">Dr. Barbara Sturm</li>
+            <li onclick="fiterByBrand()">M-61</li>
+            <li onclick="fiterByBrand()">Costa Brazil</li>
+            <li onclick="fiterByBrand()">Supergoop!</li>
+            <li onclick="fiterByBrand()">SkinCeuticals</li>
+            <li onclick="fiterByBrand()">RéVive</li>
+            <li onclick="fiterByBrand()">111SKIN</li>
+           </ul>
+
+        </div>
+        <div>
+            <ul type ="none">
+                <h3>Benefits</h3>
+                <li>Anti-Aging</li>
+                <li>Brighting</li>
+                <li>Anti Pollution</li>
+            </ul>
+        </div>
+
+        <div id = "Concern">
+            <ul type="none"> <h3>Concern</h3>
+                <li>Dark-Circle</li>
+                <li>Ancne And Blemishes</li>
+            </ul>
+
+        </div>
+
+        <div>
+            <ul type="none">
+                <h3>Price</h3>
+                <li onclick="FilterByPrice()">All Products</li>
+                <li onclick="FilterByPrice()">$0 To $50</li>
+                <li onclick="FilterByPrice()">$50 To $100</li>
+                <li onclick="FilterByPrice()">$100 To $200</li>
+                <li onclick="FilterByPrice()">$200 To $ 500</li>
+                <li onclick="FilterByPrice()">$500 +</li>
+
+            </ul>
+        </div>
+       </div>
+
+
+        <div id="skincare">
+           
+        <div id="top">
+            <h3>SKINCARE</h3>
+            <div id="filter">
+                <span>SORT BY</span>
+                <select name="" id="Select">
+                    <option value="featured">Featured</option> 
+                    <option value="new-arrival">New Arrival</option>
+                    <option value="best-seller">Best Seller</option>
+                    <option value="low-to-high">Price,Low to High</option>
+                    <option value="high-to-low">Price,High-to-Low</option>
+                </select>
             </div>
+           
+        </div>
+        <hr>
+            <div  id = 'container'>
+                <!-- <hr> -->
+                    <!-- <div>
+
+                    </div> -->
+            </div>
+            <div id="add-to-cart-modal"></div>
         </div>
     
    </div>
+
+  
 </body>
 <script src="../Scripts/skinCare.js"></script>
+<script src="../Scripts/Filters.js"></script>
 
 </html>

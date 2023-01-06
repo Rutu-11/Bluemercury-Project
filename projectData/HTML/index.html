@@ -19,19 +19,28 @@
     <div id="category">
         <h3>BESTSELLERS</h3>
         <hr>
-        <li type="none"><a href="./skinCare.html"  target="_blank">SKINCARE</a></li>
-        <li type="none"><a href="./makeup.html" target="_blank">MAKEUP</a></li>
-        <li type="none"><a href="" target="_blank">HAIR CARE </a></li>
-        <li type="none"><a href="" target="_blank">BATH & BODY</a></li>
-        <li type="none"><a href="" target="_blank">FRAGRANCE</a></li>
-        <li type="none"><a href="" target="_blank">TOOLS & ACCESSORIES </a></li>
-        <li type="none"><a href="" target="_blank">HOME & LIFESTYLE</a></li>
-        <li type="none"><a href="" target="_blank">SUN CARE</a></li>
-        <li type="none"><a href="" target="_blank">MEN </a></li>
-        <li type="none"><a href="" target="_blank">GIFTS </a></li>
-        <li type="none"><a href="" target="_blank">LAST CHANCE & OFFERS</a></li>
+        <li type="none" value="Shop All" target="_blank"><a href="./skinCare.html" target="_blank">Shop All</a></li>
+        <li type="none" value="SkinCare" target="_blank" id = "SkinCare"><a href="./skinCare.html" target="_blank">SKINCARE</a></li>
+        <li type="none" value="" target="_blank"><a href="./MakeUp.html"  target="_blank">MAKEUP</a></li>
+        <li type="none" value="" target="_blank"><a href="./Mens.html" target="_blank">MEN</a></li>
+        <li type="none" value="" target="_blank"><a href="" target="_blank">BATH & BODY</a></li>
+        <li type="none" value="" target="_blank"><a href="" target="_blank">FRAGRANCE</a></li>
+        <li type="none" value="" target="_blank"><a href="" target="_blank">TOOLS & ACCESSORIES </a></li>
+        <li type="none" value="" target="_blank"><a href="" target="_blank">HOME & LIFESTYLE</a></li>
+        <li type="none" value="" target="_blank"><a href="" target="_blank">SUN CARE</a></li>
+        <li type="none" value="" target="_blank"><a href="" target="_blank">MEN </a></li>
+        <li type="none" value="Gifts" target=""><a href="" target="_blank">GIFTS </a></li>
+        <li type="none" value="" target="_blank"><a href="" target="_blank">LAST CHANCE & OFFERS</a></li>
        
     </div>
     
 </body>
+<script>
+    console.log(document.getElementById('SkinCare'))
+    let list = document.getElementsByTagName('li');
+    list.addEventListener('click',function(){
+        console.log(event.target);
+    })
+    let ShopPageArray = ["Shop All", "SkinCare","Makeup","Hair Care","Fragrance","Bath & Body","Tools & Accessories","Gifts"];
+</script>
 </html>
