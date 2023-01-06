@@ -65,7 +65,7 @@
     margin: auto;
   }
   div > input {
-    width: 100%;
+    width: 93%;
   }
   #names {
     display: flex;
@@ -172,13 +172,12 @@
   #promo {
     width: 80%;
     margin: auto;
+    display: flex;
   }
   #promocode {
     width: 270px;
     padding: 15px;
-    margin-right: -5px;
     font-size: medium;
-    margin-left: 25px;
   }
   #promobutton {
     width: 210px;
@@ -187,6 +186,7 @@
     color: white;
     font-weight: bolder;
     font-size: medium;
+    margin-left: -10px
   }
   #promo + hr {
     width: 70%;
