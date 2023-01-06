@@ -34,7 +34,7 @@ var cart = [
   },
 ];
 
-//display function
+//Cart display function
 localStorage.setItem("cart-items", JSON.stringify(cart));
 var data = JSON.parse(localStorage.getItem("cart-items")) || [];
 var totalprice = 0;
@@ -96,14 +96,14 @@ function displaycart(arr) {
   });
 }
 
-//Plus function
+//Quatity Plus function
 function plusfunc(elem, ind) {
   elem.qty = Number(elem.qty) + 1;
   localStorage.setItem("cart-items", JSON.stringify(data));
   displaycart(data);
 }
 
-//minus function
+//Quatity minus function
 function minusfunc(elem, ind) {
   if (elem.qty == 1) {
     removefunc(elem, ind);
@@ -113,14 +113,14 @@ function minusfunc(elem, ind) {
   displaycart(data);
 }
 
-//remove function
+//Item remove function
 function removefunc(elem, ind) {
   data.splice(ind, 1);
   localStorage.setItem("cart-items", JSON.stringify(data));
   displaycart(data);
 }
 
-//samples function
+//Gift samples function
 localStorage.setItem("samples",false)
 document.querySelector("#samples").addEventListener("click",samplefunc)
 function samplefunc(){

@@ -2,8 +2,10 @@ var customerdata = JSON.parse(localStorage.getItem("customer-data")) || [];
 document.querySelector("#type_radio_1").addEventListener("click", method1fun);
 document.querySelector("#type_radio_2").addEventListener("click", method2fun);
 var obj = customerdata[customerdata.length - 1];
+
+
+//Function to display customer info got from customerinfopage
 displayinfo();
-console.log(obj);
 function displayinfo() {
   var contact = document.createElement("td");
   contact.textContent = "Contact";
@@ -39,6 +41,8 @@ function displayinfo() {
   document.querySelector("#shiptotr").append(shipto, shiptotext, change2);
 }
 
+
+//updating the total price according to the shipping method
 var totalprice = JSON.parse(localStorage.getItem("total-price"));
 function method1fun() {
   localStorage.setItem("method", "Ground Shipping (7-10 days)");
@@ -55,6 +59,8 @@ function method2fun() {
   document.querySelector("#totprice").textContent = "USD $" + totalprice;
 }
 
+
+//Function to display cart data on right side div   
 var data = JSON.parse(localStorage.getItem("cart-items")) || [];
 var samples = JSON.parse(localStorage.getItem("samples"));
 var totalprice = JSON.parse(localStorage.getItem("total-price"));
@@ -90,6 +96,9 @@ function displaycart(arr) {
     document.querySelector("#carttablebody").append(tr);
   });
 }
+
+       
+//if 3 free samples selected appending to cart table    
 if (samples == true) {
   var tr = document.createElement("tr");
   var td3 = document.createElement("td");
@@ -114,6 +123,9 @@ if (samples == true) {
   tr.append(td3,td4,td5);
   document.querySelector("#carttablebody").append(tr);
 }
+
+   
+ //Function to check promo code 
 document.querySelector("#promobutton").addEventListener("click", promofunc);
 function promofunc() {
   event.preventDefault();

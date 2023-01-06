@@ -5,7 +5,9 @@ document
     var totalprice = JSON.parse(localStorage.getItem("total-price"));
     document.querySelector("#subtot").textContent = "$" + totalprice;
     document.querySelector("#totprice").textContent = "USD $" + totalprice;
-
+    
+            
+//Function to store customer informtion 
     function storecustomerinfo() {
       event.preventDefault();
       obj = {
@@ -23,6 +25,9 @@ document
       localStorage.setItem("customer-data", JSON.stringify(customerdata));
       window.location.href = "./shippingmethod.html";
     }
+             
+       
+    //Function to display cart data on right side div                 
     var data = JSON.parse(localStorage.getItem("cart-items")) || [];
     var samples=JSON.parse(localStorage.getItem("samples"))
     displaycart(data);
@@ -55,6 +60,9 @@ document
         document.querySelector("tbody").append(tr);
       });
     }
+            
+           
+    //if 3 free samples selected appending to cart table                  
     if(samples==true){
       var tr = document.createElement("tr");
       var td3 = document.createElement("td");
@@ -79,6 +87,9 @@ document
       tr.append(td3,td4,td5);
         document.querySelector("tbody").append(tr);
     }
+
+
+    //Function to check promo code 
     document.querySelector("#promobutton").addEventListener("click", promofunc);
     function promofunc() {
       event.preventDefault();
