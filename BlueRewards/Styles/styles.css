@@ -159,6 +159,26 @@ p:empty {
   border-radius: 50%;
   margin: auto;
 }
+#slider {
+  overflow: auto;
+  justify-content: space-evenly;
+}
+#slider div {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+#slider div:hover {
+  opacity: 1;
+  font-size: 1.2rem;
+}
+th,
+td {
+  transition: all 0.5s ease-in-out;
+}
+th:hover,
+td:hover {
+  transform: scale(1.2);
+}
 @media all and (max-width: 1251px) {
   #section2 {
     flex-direction: column;
