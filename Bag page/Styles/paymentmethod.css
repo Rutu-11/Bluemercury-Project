@@ -25,6 +25,10 @@
     margin-top: 20px;
     margin-bottom: 40px;
   }
+  #footer {
+    width: 80%;
+    margin: auto;
+  }
   h3 {
     width: 80%;
     margin: auto;
@@ -235,4 +239,27 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  @media all and (max-width: 700px){
+    #parent {
+      display: block;
+      color: rgb(102, 102, 102);
+    }
+    #child1 {
+      width: 100%;
+    }
+    #child2 {
+      width: 100%;
+      background-color: rgb(248, 248, 248);
+    }
+    .vertical {
+     display: none;
+    }
+    #footer{
+      display: none;
+    }
+    input[type="submit"] {
+      padding: 1px;
+    }
   }
