@@ -354,3 +354,84 @@ a {
     display: none;
   }
 }
+
+/* -=----==================Footer------------------------ */
+
+.eventBox {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f8f8f8;
+  padding: 30px;
+  margin-top: 50px;
+  border-bottom: 1px solid darkgray;
+  justify-content: space-between;
+}
+
+.eventBox > div {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.eventBox > div > a {
+  margin-top: 1rem;
+  font-size: 13px;
+  color: black;
+}
+.eventBox > div > p {
+  margin: auto;
+  text-align: center;
+  padding-right: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px;
+}
+
+.footer > div > h2 > span {
+  margin: 20px;
+}
+
+div.form > * {
+  padding-bottom: 15px;
+}
+
+div.form > u > input {
+  padding: 0;
+  margin-bottom: 15px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid;
+  width: 80%;
+}
+
+.form > p {
+  font-size: 13px;
+}
+
+.bm > p > a {
+  font-size: 13px;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+.account > p > a {
+  font-size: 13px;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.cs > p > a {
+  font-size: 13px;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.resources > p > a {
+  font-size: 13px;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
