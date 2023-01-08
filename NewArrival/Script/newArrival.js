@@ -10538,12 +10538,19 @@ var products = [
 ];
 
 localStorage.setItem("mainProducts", JSON.stringify(products));
-var All = JSON.parse(localStorage.getItem("mainProducts"));
-var PageName = "NEW ARRIVALS";
 
-var merchbadge1 = ["CONSCIOUS BEAUTY", "LIMITED EDITION", "", "", "", "", ""];
+var merchbadge1 = [
+  "CONSCIOUS BEAUTY",
+  "LIMITED EDITION",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+];
 
-var merchbadge = ["", "", "", "NEW", "", "", ""];
+var merchbadge = [" ", " ", " ", "NEW", " ", " ", " ", " "];
 var pageCategory = [
   "Skincare",
   "HairCare",
@@ -10612,6 +10619,27 @@ var ingredient = [
   "Retinols",
   "Vitamin B5",
 ];
+
+var description = [
+  "Advanced 30% vitamin C brightening serum treatment.",
+  "A fragrance with lime and rose essences and suede accord",
+  "The vivacity of a green apple accord, the unctuousness of a caramel, combined with floral, woody and musky notes.",
+  "A modernized satin lipstick that veils lips in ravishing regency-inspired color and a luminous dewy finish.",
+  "A complete facial experience in a single product, this multi-purpose cleansing scrub instantly smooths, polishes, and softens the skin. ",
+  "Travel-friendly sizes of our most popular hair essentials.",
+  "This complexion enhancer is ideal for correcting and brightening the skins complexion. ",
+  "This cult-favorite mascara dramatically lengthens and defines in lethally-luxe layers for long-lasting, customizable drama.",
+  "Buildable eyeshadows for a long-lasting illuminating effect you are guaranteed to adore!",
+  "Esker’s Allover Roller is made up of a textured Xiuyan Jade roller and polished Xiuyan Jade handle to provide a deep and gentle self massage for the entire body.",
+  "The essential brushes to build your arsenal of exceptional beauty tools.",
+  "Nourish, protect and soothe your skin with this broad spectrum SPF 30 sunscreen for body, face and scalp. Water-resistant up to 40 minutes",
+  "A plant-derived hair cleanser that gently removes residue and balances the natural moisture of the scalp without irritation.",
+  "Give hair color staying power with our unique plant-based, deep conditioning hair and color treatment.",
+  "A lightweight yet rich conditioner made of plant oils that instantly delivers weightless, lasting hydration.",
+];
+
+var All = JSON.parse(localStorage.getItem("mainProducts"));
+var PageName = "NEW ARRIVALS";
 All.forEach((element) => {
   let id = Math.round(Math.random() * 7);
   return (
@@ -10625,8 +10653,8 @@ All.forEach((element) => {
   );
 });
 All.map((element) => {
-  let id = Math.round(Math.random() * 15);
-  return (element.type = type[id]);
+  let id = Math.round(Math.random() * 14);
+  return (element.type = type[id]), (element.description = description[id]);
 });
 
 localStorage.setItem("mainProducts", JSON.stringify(All));
@@ -10634,24 +10662,26 @@ localStorage.setItem("mainProducts", JSON.stringify(All));
 var PageProducts = All.filter((element) => {
   return element.pageCategory === "NEW";
 });
-// console.log(PageProducts);
+
 displayProducts(PageProducts);
 
 // Display function
 function displayProducts(arr) {
-  if (arr.length > 24) {
-    arr = arr.splice(0, 24);
+  if (arr.length > 18) {
+    arr = arr.slice(0, 18);
   }
   document.getElementById("container").innerHTML = "";
   arr.map((element, index) => {
     const container = document.getElementById("container");
-
     container.innerHTML += `
     <div class="product-container>
         <i class=""></i>     
         <p class="head">${element.merchbadge}<i class="fa-solid fa-2x fa-heart" id="heart${index}" onclick="wishlist(PageProducts[${index}], ${index})"></i></p>
         <p>${element.merchbadge1}</p>     
-        <img src="${element.Image}" alt="${element.Title}" class="image"/>
+        <div class="quickview">
+          <img src="${element.Image}" alt="${element.Title}" class="image" />
+          <button id="quick${index}" class="quick" onclick="quickViewProduct(PageProducts[${index}], ${index})">QUICK VIEW</button>
+        </div>
         <h3>${element.productcard__brand}</h3>
         <p>${element.Title}</p>
         <p>$${element.Price}</p>
@@ -10660,17 +10690,104 @@ function displayProducts(arr) {
 `;
   });
 }
+
+// Quickview of products
+
+function quickViewProduct(element, ind) {
+  const box = document.querySelector(".ViewBox");
+  box.classList.add("boxApply");
+  box.innerHTML = `
+  <div>
+  <img src="${element.Image}">
+    </div>
+    <div>
+        <h2>${element.productcard__brand}</h2>
+        <p>${element.Title}</p>   
+        <p>$${element.Price}</p>
+        <div style="display:flex">${element.merchbadge} ${element.merchbadge1}</div>
+        <p>${element.description}</p>
+        <div style="display:flex; height: 35px">
+                 <button onclick="decreaseQuantity(${ind})" class="quantityBtn">-</button>
+                 <input type="tel" value="1" id="quantity${ind}" class="proQuantity"> 
+                 <button onclick="increaseQuantity(${ind})" class="quantityBtn">+</button> 
+                <p class="heart"><i class="fa-solid fa-2x fa-heart" id="heart${ind}" onclick="wishlist(PageProducts[${ind}],${ind})"></i></p>
+                <p>WISHLIST</p>
+        </div>
+        <button id="cart${ind}" onclick="addToCart(PageProducts[${ind}], ${ind})"><i class="fa-solid fa-bag-shopping" ></i>ADD TO BAG</button>
+     </div>
+     <button onclick="cut()" id="x">X</button>
+     <a href="${element.Title_URL}" class="details">VIEW FULL DETAILS</a>
+  `;
+}
+// Increasing Quanttity
+function increaseQuantity(ind) {
+  let qty = Number(document.getElementById("quantity" + ind).value);
+  qty++;
+  document.getElementById("quantity" + ind).value = qty;
+}
+
+// Decreasing Quanttity
+function decreaseQuantity(ind) {
+  let qty = Number(document.getElementById("quantity" + ind).value);
+  if (qty > 1) {
+    qty--;
+    document.getElementById("quantity" + ind).value = qty;
+  }
+}
+// Function cut
+function cut() {
+  document.querySelector(".ViewBox").classList.remove("boxApply");
+}
+// Add To Cart
+function addToCart(element, ind) {
+  let cartItems = JSON.parse(localStorage.getItem("cart-items")) || [];
+  let qtyOfItems = document.getElementById("quantity" + ind).value;
+  element.qty = qtyOfItems;
+  element.img = element.Image;
+  element.name = element.productcard__brand;
+  element.desc = element.Title;
+  element.price = element.Price;
+  // console.log(element);
+  cartItems.push(element);
+  document.getElementById("cart" + ind).innerText = "ADDED TO BAG";
+}
+
 //Addding to Whistlist
 function wishlist(element, ind) {
   const newWhistlist = JSON.parse(localStorage.getItem("wishlist")) || [];
   if (element.wishlist !== undefined) {
-    alert("Product already in Wishlist");
+    const dia = document.querySelector(".d");
+    dia.classList.add("applied");
+    dia.innerHTML = `
+    <div>
+    <img src="${element.Image}">
+    <p style="color:red">${element.Title} Already in Wishlist</p>
+    <p>Price: $${element.Price}</p>
+    <button onclick="ok()">Cancel</button>
+    </div>
+    `;
   } else {
+    const dia = document.querySelector(".d");
+    dia.classList.add("applied");
+
+    dia.innerHTML = `
+    <div class ="add">
+    <img src="${element.Image}">
+    <p style="color:green">${element.Title} Successfully added to Wishlist</p>
+    <p>Price: $${element.Price}</p>
+    <button onclick="ok()">Cancel</button>
+    </div>
+    `;
     element.wishlist = ind;
     newWhistlist.push(element);
   }
   document.getElementById("heart" + ind).style.color = "red";
   localStorage.setItem("wishlist", JSON.stringify(newWhistlist));
+}
+// Function OK
+function ok() {
+  let add = document.querySelector(".d");
+  add.classList.remove("applied");
 }
 
 //Display Left Container
@@ -10755,7 +10872,7 @@ function displayCategories(arr) {
 
 `;
 }
-
+//thing to update -- whislist pop up and arr.slice insted of arr.splice
 //First Filter
 const filter = document.getElementById("filter");
 filter.addEventListener("change", () => {
@@ -10776,19 +10893,19 @@ filter.addEventListener("change", () => {
   } else {
     //Filtering
     if (value === "Featured") {
-      newProductArray = All.filter((element) => {
+      PageProducts = All.filter((element) => {
         return element.merchbadge1 === "LIMITED EDITION";
       });
     } else if (value === "New Arrivals") {
-      newProductArray = All.filter((element) => {
+      PageProducts = All.filter((element) => {
         return element.merchbadge === "NEW";
       });
     } else if (value === "Best Sellers") {
-      newProductArray = All.filter((element) => {
+      PageProducts = All.filter((element) => {
         return element.merchbadge1 === "CONSCIOUS BEAUTY";
       });
     }
-    displayProducts(newProductArray);
+    displayProducts(PageProducts);
   }
 });
 
@@ -10797,53 +10914,44 @@ filter.addEventListener("change", () => {
 let typefilter = document.getElementById("type-filter");
 typefilter.addEventListener("change", () => {
   let value = typefilter.value;
-  let newArray = PageProducts;
-  newArray = All.filter((element) => {
+  PageProducts = All.filter((element) => {
     return element.type === value;
   });
-  displayProducts(newArray);
+  displayProducts(PageProducts);
 });
 
 let brandfilter = document.getElementById("brand-filter");
 brandfilter.addEventListener("change", () => {
   let value = brandfilter.value;
-  let newArray = PageProducts;
-  newArray = All.filter((element) => {
+  PageProducts = All.filter((element) => {
     return element.productcard__brand === value;
   });
-  displayProducts(newArray);
+  displayProducts(PageProducts);
 });
 
 let concernfilter = document.getElementById("concern-filter");
 concernfilter.addEventListener("change", () => {
   let value = concernfilter.value;
-  let newArray = PageProducts;
-  newArray = All.filter((element) => {
+  PageProducts = All.filter((element) => {
     return element.concern === value;
   });
-  displayProducts(newArray);
+  displayProducts(PageProducts);
 });
 
 let sizefilter = document.getElementById("size-filter");
 sizefilter.addEventListener("change", () => {
   let value = sizefilter.value;
-  console.log(value);
-  let newArray = PageProducts;
-  newArray = All.filter((element) => {
+  PageProducts = All.filter((element) => {
     return element.size === value;
   });
-  console.log(newArray);
-  displayProducts(newArray);
+  displayProducts(PageProducts);
 });
 
 let ingredientfilter = document.getElementById("ingredient-filter");
 ingredientfilter.addEventListener("change", () => {
   let value = ingredientfilter.value;
-  console.log(value, PageProducts);
-  let newArray = PageProducts;
-  newArray = All.filter((element) => {
+  PageProducts = All.filter((element) => {
     return element.ingredient === value;
   });
-  console.log(newArray);
-  displayProducts(newArray);
+  displayProducts(PageProducts);
 });
