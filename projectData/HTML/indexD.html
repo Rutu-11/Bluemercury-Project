@@ -19,7 +19,7 @@
     <div id="category">
         <h3>BESTSELLERS</h3>
         <hr>
-        <li type="none" value="Shop All" target="_blank"><a href="./skinCare.html" target="_blank">Shop All</a></li>
+        <li>SKINCARE</li>
         <li type="none" value="SkinCare" target="_blank" id = "SkinCare"><a href="./skinCare.html" target="_blank">SKINCARE</a></li>
         <li type="none" value="" target="_blank"><a href="./MakeUp.html"  target="_blank">MAKEUP</a></li>
         <li type="none" value="" target="_blank"><a href="./Mens.html" target="_blank">MEN</a></li>
@@ -36,11 +36,12 @@
     
 </body>
 <script>
-    console.log(document.getElementById('SkinCare'))
-    let list = document.getElementsByTagName('li');
-    list.addEventListener('click',function(){
-        console.log(event.target);
-    })
-    let ShopPageArray = ["Shop All", "SkinCare","Makeup","Hair Care","Fragrance","Bath & Body","Tools & Accessories","Gifts"];
+    console.log(document.querySelector('#category').innerHTML)
+    // console.log(document.getElementById('SkinCare'))
+    // let list = document.getElementsByTagName('li');
+    // list.addEventListener('click',function(){
+    //     console.log(event.target);
+    // })
+    // let ShopPageArray = ["Shop All", "SkinCare","Makeup","Hair Care","Fragrance","Bath & Body","Tools & Accessories","Gifts"];
 </script>
 </html>

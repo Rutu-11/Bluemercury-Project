@@ -12,7 +12,7 @@ function uuidv4() {
         let showPage = document.querySelector('#category');
         console.log(showPage);
         
-            let response1 = await fetch("../jsondata/Shop All Makeup _ bluemercury.json");
+            let response1 = await fetch("../jsondata/Hair Care _ bluemercury.json");
             MakeUp = await response1.json();
             MakeUp = MakeUp.map(function(ele){
                ele.id = uuidv4();
@@ -544,7 +544,6 @@ function displayDetailsOfProducts(ele){
     console.log(document.querySelector('.cart-img-container').innerHTML)
 
  }
-
 
  let selectedBrand = document.querySelector('#brands');
 //  console.log(selectedBrand);

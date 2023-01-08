@@ -8,20 +8,20 @@ function uuidv4() {
 }
 
     async function getTechProducts() {
-        let MakeUp=[];
+        let SkinCare=[];
         let showPage = document.querySelector('#category');
         console.log(showPage);
         
-            let response1 = await fetch("../jsondata/Shop All Makeup _ bluemercury.json");
-            MakeUp = await response1.json();
-            MakeUp = MakeUp.map(function(ele){
+            let response1 = await fetch("../jsondata/Shop All Products For Men _ bluemercury.json");
+            SkinCare = await response1.json();
+            SkinCare = SkinCare.map(function(ele){
                ele.id = uuidv4();
                ele.qty = 1;
                return ele;
             })
            
       
-      MakeUp.forEach(function(ele,ind){
+      SkinCare.forEach(function(ele,ind){
         if(ind%3==0){
             ele.sell="Best Seller";
             ele.benefits= "Anti-Aging";
@@ -35,7 +35,7 @@ function uuidv4() {
         // console.log(ele);
       })
 
-      MakeUp.forEach(function(ele,ind){
+      SkinCare.forEach(function(ele,ind){
         if(ind%3==0){
             // ele.sell="Best Seller";
             // ele.benefits= "Anti-Aging";
@@ -54,12 +54,12 @@ function uuidv4() {
         // console.log(ele);
       })
     
-      displayMakeUp(MakeUp);
+      displaySkinCare(SkinCare);
     
  
     //********************** DISPLAY PRODUCT FUNCTION*********************** */
    
-    function displayMakeUp(data){
+    function displaySkinCare(data){
         data.map(function(ele){
                      
             let div = document.createElement('div');
@@ -161,7 +161,7 @@ function uuidv4() {
     //console.log(sorting);
 
     //*****************  CREATING DUPLICATE ARRAY TO MAINTAIN SEQUENCE OF ORIGINAL ARRAY  ************** */
-    let arrSort = [...MakeUp];
+    let arrSort = [...SkinCare];
 
     
     function sortByprice(){
@@ -172,23 +172,23 @@ function uuidv4() {
             arrSort.sort(function(a,b){
                 return a.price - b.price;
             });
-            displayMakeUp(arrSort);
+            displaySkinCare(arrSort);
         }
         else if(selected == 'high-to-low'){
             arrSort.sort(function(a,b){
                 return b.price - a.price;
             });
-            displayMakeUp(arrSort);
+            displaySkinCare(arrSort);
         }
         else if(selected == 'Featured'){
-            displayMakeUp(MakeUp);
+            displaySkinCare(SkinCare);
         }
         else{
-           let filteredSell = MakeUp.filter(function(ele){
+           let filteredSell = SkinCare.filter(function(ele){
                return ele.sell == selected;
            })
            console.log(filteredSell);
-           displayMakeUp(filteredSell);
+           displaySkinCare(filteredSell);
         }  
             
     }
@@ -359,6 +359,7 @@ function displayAddToCartModal(ele){
 
 
 //********************FUNCTION DISPLAY DETAILS OD PRODUCTS ******************** */
+
 function displayDetailsOfProducts(ele){
     document.getElementById('products-details').innerHTML = "";
 
@@ -545,7 +546,6 @@ function displayDetailsOfProducts(ele){
 
  }
 
-
  let selectedBrand = document.querySelector('#brands');
 //  console.log(selectedBrand);
  selectedBrand.addEventListener('click', HandleByFilterByBrands);
@@ -554,17 +554,17 @@ function displayDetailsOfProducts(ele){
     document.querySelector('#container').innerHTML=null;
    let selected =event.target.innerText;
    if(selected == 'All Brands'){
-    displayMakeUp(MakeUp);
+    displaySkinCare(SkinCare);
    }
    else{
-    let filteredBrand = MakeUp.filter(function(ele){
+    let filteredBrand = SkinCare.filter(function(ele){
         return ele.brand==selected;
       })
     //   console.log(filteredBrand);
-    //   displayMakeUp(filteredBrand);
+    //   displaySkinCare(filteredBrand);
    
    if(filteredBrand.length>0){
-    displayMakeUp(filteredBrand);
+    displaySkinCare(filteredBrand);
     }
     else{
         let div = document.createElement("div");
@@ -590,16 +590,16 @@ function displayDetailsOfProducts(ele){
   console.log(selectedPrice);
   selectedPrice.addEventListener('click', FilterByPrice)
 
-  let priceSort = [...MakeUp];
+  let priceSort = [...SkinCare];
 function  FilterByPrice() {
     document.querySelector('#container').innerHTML=null;
     let selected =event.target.innerText;
     let filteredPrice =[];
-    //     MakeUp.forEach(function(ele){
+    //     SkinCare.forEach(function(ele){
     //       ele.qty = 1;
     //   })
          if(selected == '$500+' || selected == "All Products"){
-            displayMakeUp(MakeUp);
+            displaySkinCare(SkinCare);
          }
          else{
              if(selected == '$0 To $50'){
@@ -627,7 +627,7 @@ function  FilterByPrice() {
                 // 
              }
              if(filteredPrice.length>0){
-                displayMakeUp(filteredPrice);
+                displaySkinCare(filteredPrice);
             }else{
                 let div = document.createElement("div");
                let h2 =  document.createElement("h2");
@@ -656,11 +656,11 @@ function  FilterByPrice() {
     function HandleByFilterByselectedConcern(){
         document.querySelector('#container').innerHTML=null;
         let selected =event.target.innerText;
-        let filteredConcern = MakeUp.filter(function(ele){
+        let filteredConcern = SkinCare.filter(function(ele){
             return ele.concern==selected;
         })
         if(filteredConcern.length>0){
-            displayMakeUp(filteredConcern);
+            displaySkinCare(filteredConcern);
         }else{
             let div = document.createElement("div");
            let h2 =  document.createElement("h2");
@@ -687,12 +687,12 @@ selectedBenefit.addEventListener('click', HandleByFilterByselectedBenefit);
  function HandleByFilterByselectedBenefit(){
     document.querySelector('#container').innerHTML=null;
     let selected =event.target.innerText;
-    let filteredBenefits = MakeUp.filter(function(ele){
+    let filteredBenefits = SkinCare.filter(function(ele){
         return ele.benefits==selected;
     })
     console.log(filteredBenefits);
     if(filteredBenefits.length>0){
-        displayMakeUp(filteredBenefits);
+        displaySkinCare(filteredBenefits);
     }else{
         let div = document.createElement("div");
        let h2 =  document.createElement("h2");
@@ -717,13 +717,13 @@ selectedCleanser.addEventListener('click', HandleByFilterByselectedCleanser);
  function HandleByFilterByselectedCleanser(){
     document.querySelector('#container').innerHTML=null;
     let selected =event.target.innerText;
-    let filteredCleanser = MakeUp.filter(function(ele){
+    let filteredCleanser = SkinCare.filter(function(ele){
         console.log(selected==ele.cleanser);
         return ele.cleanser==selected;
     })
     console.log(filteredCleanser);
     if(filteredCleanser.length>0){
-        displayMakeUp(filteredCleanser);
+        displaySkinCare(filteredCleanser);
     }else{
         let div = document.createElement("div");
        let h2 =  document.createElement("h2");

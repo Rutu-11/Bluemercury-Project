@@ -10,9 +10,9 @@ function uuidv4() {
     async function getTechProducts() {
         let MakeUp=[];
         let showPage = document.querySelector('#category');
-        console.log(showPage);
+        // console.log(showPage);
         
-            let response1 = await fetch("../jsondata/Shop All Makeup _ bluemercury.json");
+            let response1 = await fetch("../jsondata/Sun Care _ bluemercury.json");
             MakeUp = await response1.json();
             MakeUp = MakeUp.map(function(ele){
                ele.id = uuidv4();
@@ -187,7 +187,7 @@ function uuidv4() {
            let filteredSell = MakeUp.filter(function(ele){
                return ele.sell == selected;
            })
-           console.log(filteredSell);
+           //console.log(filteredSell);
            displayMakeUp(filteredSell);
         }  
             
@@ -342,7 +342,7 @@ function displayAddToCartModal(ele){
 
    
    viewDetails.addEventListener('click', function(){
-    console.log(ele);
+   // console.log(ele);
     document.getElementById('products-details').innerHTML=null;
     document.getElementById('add-to-cart-modal').style.display='none';
     displayDetailsOfProducts(ele);
@@ -359,6 +359,7 @@ function displayAddToCartModal(ele){
 
 
 //********************FUNCTION DISPLAY DETAILS OD PRODUCTS ******************** */
+
 function displayDetailsOfProducts(ele){
     document.getElementById('products-details').innerHTML = "";
 
@@ -545,7 +546,6 @@ function displayDetailsOfProducts(ele){
 
  }
 
-
  let selectedBrand = document.querySelector('#brands');
 //  console.log(selectedBrand);
  selectedBrand.addEventListener('click', HandleByFilterByBrands);
@@ -587,7 +587,7 @@ function displayDetailsOfProducts(ele){
 
 
  let selectedPrice = document.querySelector('#price');
-  console.log(selectedPrice);
+  //console.log(selectedPrice);
   selectedPrice.addEventListener('click', FilterByPrice)
 
   let priceSort = [...MakeUp];
@@ -690,7 +690,7 @@ selectedBenefit.addEventListener('click', HandleByFilterByselectedBenefit);
     let filteredBenefits = MakeUp.filter(function(ele){
         return ele.benefits==selected;
     })
-    console.log(filteredBenefits);
+   // console.log(filteredBenefits);
     if(filteredBenefits.length>0){
         displayMakeUp(filteredBenefits);
     }else{
@@ -718,10 +718,10 @@ selectedCleanser.addEventListener('click', HandleByFilterByselectedCleanser);
     document.querySelector('#container').innerHTML=null;
     let selected =event.target.innerText;
     let filteredCleanser = MakeUp.filter(function(ele){
-        console.log(selected==ele.cleanser);
+       // console.log(selected==ele.cleanser);
         return ele.cleanser==selected;
     })
-    console.log(filteredCleanser);
+    //console.log(filteredCleanser);
     if(filteredCleanser.length>0){
         displayMakeUp(filteredCleanser);
     }else{
