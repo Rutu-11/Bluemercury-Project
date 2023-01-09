@@ -160,69 +160,263 @@ function displayCategories(pageCategory, PageName) {
               <p class="category-name"><a href="${pageCategory[5]}.html">${pageCategory[5]}</a></p>
               <p class="category-name"><a href="${pageCategory[6]}.html">${pageCategory[6]}</a></p>
   
-        </div>
-        <h1>FILTER ${PageName} BY</h1>
-          <div class="slection">
-            <select name="" id="type-filter" class="select">
-            <option selected disable>Type</option>
-              <option value="After Sun Care">After Sun Care</option>
-              <option value="Body Wash">Body Wash</option>
-              <option value="Brush Sets">Brush Sets</option>
-              <option value="Conditioners">Conditioners</option>
-              <option value="Curling Irons">Curling Irons</option>
-              <option value="Diffusers">Diffusers</option>
-              <option value="Exercise Bands">Exercise Bands</option>
-              <option value="Eye Creams">Eye Creams</option>
-              <option value="Eye Palette">Eye Palette</option>
-              <option value="Face Mask">Face Mask</option>
-              <option value="Face Wash">Face Wash</option>
-              <option value="Hair Oil">Hair Oil</option>
-              <option value="Hair Serums">Hair Serums</option>
-              <option value="Lipstick">Lipstick</option>
-              <option value="Shampoo">Shampoo</option>
-            </select>
-          </div>
-          <div class="slection">
-            <select name="" id="brand-filter" class="select">
-            <option selected disable >Brand</option>
-              <option value="Bumble And Bumble">Bumble And Bumble</option>
-              <option value="M-61">M-61</option>
-              <option value="Ourself">Ourself</option>
-              <option value="Seen">Seen</option>
-              <option value="SkinCeuticals">SkinCeuticals</option>
-            </select>
-          </div>
-          <div class="slection">
-            <select name="" id="concern-filter" class="select">
-            <option selected disable >Concern</option>
-              <option value="Acne And Blemishes">Acne And Blemishes</option>
-              <option value="Black Heads And Visible Pores">Black Heads And Visible Pores</option>
-              <option value="Dullness">Dullness</option>
-              <option value="Fine Lines And Wrinkles">Fine Lines And Wrinkles</option>
-              <option value="Loss Of Firmness">Loss Of Firmness</option>
-              <option value="Rough/Bumpy Skin">Rough/Bumpy Skin</option>
-              <option value="Sun Damage">Sun Damage</option>
-            </select>
-          </div>
-          <div class="slection">
-            <select name="" id="size-filter" class="select">
-            <option selected disable>Size</option>
-              <option value="Jumbo And Value Size">Jumbo And Value Size</option>
-              <option value="Travel Size">Travel Size</option>
-              <option value="Classic">Classic</option>
-              <option value="Votive">Votive</option>
-            </select>
-          </div>
-          <div class="slection">
-            <select name="" id="ingredient-filter" class="select">
-            <option selected disable >Ingredient Preference</option>
-              <option value="Naturally Derived">Naturally Derived</option>
-              <option value="Retinols">Retinols</option>
-              <option value="Bakuchiol">Bakuchiol</option>
-              <option value="Salicylic Acid">Salicylic Acid</option>
-              <option value="Vitamin B5">Vitamin B5</option>
-            </select>
-          </div>
+        
+      </div>
+      <div class="type-container">
+      <div class="select-btn">
+        <span class="btn-text">Type Filter</span>
+        <span class="arrow-dwn">
+          <i class="fa-solid fa-2x fa-plus"></i>
+        </span>
+      </div>
+
+      <ul class="list-items">
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">After Sun Care</span>
+        </li>
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Body Wash</span>
+        </li>
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Brush Sets</span>
+        </li>
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Conditioners</span>
+        </li>
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Curling Irons</span>
+        </li>
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Diffusers</span>
+        </li>
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Exercise Bands</span>
+        </li>
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Eye Creams</span>
+        </li>
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Eye Palette</span>
+        </li>
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Face Mask</span>
+        </li>
+        <li class="item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Face Wash</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="type-container">
+      <div class="select-btn" id="brand-filter">
+        <span class="btn-text">Brand Filter</span>
+        <span class="arrow-dwn">
+          <i class="fa-solid fa-2x fa-plus"></i>
+        </span>
+      </div>
+
+      <ul class="list-items">
+        <li class="brand-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Bumble And Bumble</span>
+        </li>
+        <li class="brand-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">M-61</span>
+        </li>
+        <li class="brand-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Ourself</span>
+        </li>
+        <li class="brand-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Seen</span>
+        </li>
+        <li class="brand-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">SkinCeuticals</span>
+        </li>
+        
+      </ul>
+    </div>
+
+    <div class="type-container">
+      <div class="select-btn" id="concern-filter">
+        <span class="btn-text">Concern Filter</span>
+        <span class="arrow-dwn">
+          <i class="fa-solid fa-2x fa-plus"></i>
+        </span>
+      </div>
+
+      <ul class="list-items">
+        <li class="item concern-item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Acne And Blemishes</span>
+        </li>
+        <li class="item concern-item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Black Heads And Visible Pores</span>
+        </li>
+        <li class="item concern-item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Dullness</span>
+        </li>
+        <li class="item concern-item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Fine Lines And Wrinkles</span>
+        </li>
+        <li class="item concern-item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Loss Of Firmness</span>
+        </li>
+        <li class="item concern-item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Rough/Bumpy Skin</span>
+        </li>
+        <li class="item concern-item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Sun Damage</span>
+        </li>
+        
+      </ul>
+    </div>
+
+    <div class="type-container">
+      <div class="select-btn" id="size-filter">
+        <span class="btn-text">Size Filter</span>
+        <span class="arrow-dwn">
+          <i class="fa-solid fa-2x fa-plus"></i>
+        </span>
+      </div>
+
+      <ul class="list-items">
+        <li class="size-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Jumbo And Value Size</span>
+        </li>
+        <li class="size-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Travel Size</span>
+        </li>
+        <li class="size-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Classic</span>
+        </li>
+        <li class="size-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Votive</span>
+        </li>
+        
+      </ul>
+    </div>
+
+    <div class="type-container">
+      <div class="select-btn" id="ingredient-filter">
+        <span class="btn-text">Ingredient</span>
+        <span class="arrow-dwn">
+          <i class="fa-solid fa-2x fa-plus"></i>
+        </span>
+      </div>
+
+      <ul class="list-items">
+        <li class="ingredient-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Naturally Derived</span>
+        </li>
+        <li class="ingredient-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Retinols</span>
+        </li>
+        <li class="ingredient-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Bakuchiol</span>
+        </li>
+        <li class="ingredient-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Salicylic Acid</span>
+        </li>
+        <li class="ingredient-item item">
+          <span class="checkbox">
+            <i class="fa-solid fa-check check-icon"></i>
+          </span>
+          <span class="item-text">Vitamin B5</span>
+        </li>
+        
+      </ul>
+    </div>
   
   `;
 }
@@ -265,47 +459,134 @@ filter.addEventListener("change", () => {
 
 //Left Side Filter
 
-let typefilter = document.getElementById("type-filter");
-typefilter.addEventListener("change", () => {
-  let value = typefilter.value;
-  PageProducts = All.filter((element) => {
-    return element.type === value;
+// let typefilter = document.getElementById("type-filter");
+// typefilter.addEventListener("change", () => {
+//   let value = typefilter.value;
+//   PageProducts = All.filter((element) => {
+//     return element.type === value;
+//   });
+//   displayProducts(PageProducts);
+// });
+
+// let brandfilter = document.getElementById("brand-filter");
+// brandfilter.addEventListener("change", () => {
+//   let value = brandfilter.value;
+//   PageProducts = All.filter((element) => {
+//     return element.productcard__brand === value;
+//   });
+//   displayProducts(PageProducts);
+// });
+
+// let concernfilter = document.getElementById("concern-filter");
+// concernfilter.addEventListener("change", () => {
+//   let value = concernfilter.value;
+//   PageProducts = All.filter((element) => {
+//     return element.concern === value;
+//   });
+//   displayProducts(PageProducts);
+// });
+
+// let sizefilter = document.getElementById("size-filter");
+// sizefilter.addEventListener("change", () => {
+//   let value = sizefilter.value;
+//   PageProducts = All.filter((element) => {
+//     return element.size === value;
+//   });
+//   displayProducts(PageProducts);
+// });
+
+// let ingredientfilter = document.getElementById("ingredient-filter");
+// ingredientfilter.addEventListener("change", () => {
+//   let value = ingredientfilter.value;
+//   PageProducts = All.filter((element) => {
+//     return element.ingredient === value;
+//   });
+//   displayProducts(PageProducts);
+// });
+
+const selectBtn = document.querySelector(".select-btn");
+const brandFilter = document.querySelector("#brand-filter");
+const concernfilter = document.querySelector("#concern-filter");
+const sizefilter = document.querySelector("#size-filter");
+const ingredientfilter = document.querySelector("#ingredient-filter");
+
+selectBtn.addEventListener("click", () => {
+  selectBtn.classList.toggle("open");
+  items = document.querySelectorAll(".item");
+
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("checked");
+      let value = item.innerText;
+      PageProducts = All.filter((element) => {
+        return element.type === value;
+      });
+      displayProducts(PageProducts);
+    });
   });
-  displayProducts(PageProducts);
 });
 
-let brandfilter = document.getElementById("brand-filter");
-brandfilter.addEventListener("change", () => {
-  let value = brandfilter.value;
-  PageProducts = All.filter((element) => {
-    return element.productcard__brand === value;
+brandFilter.addEventListener("click", () => {
+  brandFilter.classList.toggle("open");
+  items = document.querySelectorAll(".brand-item");
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("checked");
+      let value = item.innerText;
+      PageProducts = All.filter((element) => {
+        return element.productcard__brand === value;
+      });
+      displayProducts(PageProducts);
+    });
   });
-  displayProducts(PageProducts);
 });
 
-let concernfilter = document.getElementById("concern-filter");
-concernfilter.addEventListener("change", () => {
-  let value = concernfilter.value;
-  PageProducts = All.filter((element) => {
-    return element.concern === value;
+concernfilter.addEventListener("click", () => {
+  concernfilter.classList.toggle("open");
+  items = document.querySelectorAll(".concern-item");
+
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("checked");
+      let value = item.innerText;
+      PageProducts = All.filter((element) => {
+        return element.concern === value;
+      });
+      displayProducts(PageProducts);
+    });
   });
-  displayProducts(PageProducts);
 });
 
-let sizefilter = document.getElementById("size-filter");
-sizefilter.addEventListener("change", () => {
-  let value = sizefilter.value;
-  PageProducts = All.filter((element) => {
-    return element.size === value;
+sizefilter.addEventListener("click", () => {
+  sizefilter.classList.toggle("open");
+  items = document.querySelectorAll(".size-item");
+
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("checked");
+      let value = item.innerText;
+      console.log(value);
+      PageProducts = All.filter((element) => {
+        return element.size === value;
+      });
+      displayProducts(PageProducts);
+    });
   });
-  displayProducts(PageProducts);
 });
 
-let ingredientfilter = document.getElementById("ingredient-filter");
-ingredientfilter.addEventListener("change", () => {
-  let value = ingredientfilter.value;
-  PageProducts = All.filter((element) => {
-    return element.ingredient === value;
+ingredientfilter.addEventListener("click", () => {
+  ingredientfilter.classList.toggle("open");
+  items = document.querySelectorAll(".ingredient-item");
+
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("checked");
+      let value = item.innerText;
+      console.log(value);
+      PageProducts = All.filter((element) => {
+        return element.ingredient === value;
+      });
+      displayProducts(PageProducts);
+    });
   });
-  displayProducts(PageProducts);
 });
