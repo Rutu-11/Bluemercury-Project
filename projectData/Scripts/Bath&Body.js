@@ -12,7 +12,7 @@ function uuidv4() {
         let showPage = document.querySelector('#category');
         console.log(showPage);
         
-            let response1 = await fetch("../jsondata/Shop All Products For Men _ bluemercury.json");
+            let response1 = await fetch("../jsondata/Bath _ Body _ bluemercury.json");
             SkinCare = await response1.json();
             SkinCare = SkinCare.map(function(ele){
                ele.id = uuidv4();

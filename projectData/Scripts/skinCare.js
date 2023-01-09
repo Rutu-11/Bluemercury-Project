@@ -37,19 +37,11 @@ function uuidv4() {
 
       SkinCare.forEach(function(ele,ind){
         if(ind%3==0){
-            // ele.sell="Best Seller";
-            // ele.benefits= "Anti-Aging";
-            //  ele.concern="Dark-Circle";
              ele.cleanser ="Eye Care";
         }
         else if(ind%7==0){
-            // ele.sell="New Arrival";
-            // ele.benefits ="Brighting";
-            // ele.concern="Ancne And Blemishes";
+            
             ele.cleanser="Lip Care";
-        }
-        else{
-
         }
         // console.log(ele);
       })
@@ -328,7 +320,9 @@ function displayAddToCartModal(ele){
     let AddToCartBtn = document.createElement('button');
     AddToCartBtn.setAttribute('id','addToCartBtn');
     AddToCartBtn.innerHTML = `<i class="fa-sharp fa-solid fa-cart-plus"></i> <span> ADD TO CART</span>`
-
+    AddToCartBtn.addEventListener('click',function(){
+        addToCart(ele);
+    });
     div1.append(img);
     box.append(edition,category);
     //priceBox.append(price,span);
@@ -456,6 +450,9 @@ function displayDetailsOfProducts(ele){
  
      let AddToCartBtn = document.createElement('button');
      AddToCartBtn.setAttribute('id','addToBagBtn');
+     AddToCartBtn.addEventListener('click',function(){
+        addToCart(ele);
+     })
 
      let bagIcon = document.createElement('p');
      bagIcon.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`;
@@ -741,14 +738,28 @@ selectedCleanser.addEventListener('click', HandleByFilterByselectedCleanser);
         img.setAttribute('src',"https://www.pngfind.com/pngs/m/272-2727925_continue-shopping-empty-cart-png-transparent-png.png");
         div.append(h2,img);
         document.querySelector('#container').append(div);
-
-
     }
     
  }
+let cartData = JSON.parse(localStorage.getItem('cart-items')) || [];
+ function addToCart(ele){
+    if(cartData.includes(ele)){
+         alert(`${ele.name}Already in the Cart`);
+         ele.qty=Number(ele.qty)+1; 
+        //  localStorage.setItem("cart-items",JSON.stringify(cartData));
+        //  event.target.style.cursor='pointer';       
+    }
+    else{
+       
+        alert(`${ele.name}Added To cart `);
+        // event.target.style.cursor='no-drop';   
+        cartData.push(ele);
+        localStorage.setItem("cart-items",JSON.stringify(cartData));
+    }
 
 }
-
+    
+}
   getTechProducts();
 
  
