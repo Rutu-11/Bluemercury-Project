@@ -10749,6 +10749,7 @@ function addToCart(element, ind) {
   element.price = element.Price;
   // console.log(element);
   cartItems.push(element);
+  localStorage.setItem("cart-items",JSON.stringify(cartItems));
   document.getElementById("cart" + ind).innerText = "ADDED TO BAG";
 }
 
