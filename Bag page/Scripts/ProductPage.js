@@ -1,37 +1,37 @@
 //Data
 var cart = [
-  {
-    id: 1,
-    img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-5060552905975-1_240x240.jpg?v=1671541617",
-    name: "AUGUSTINUS BADER",
-    desc: "The Hydration Heroes With The Rich Cream",
-    price: "325",
-    qty: 1,
-  },
-  {
-    id: 2,
-    img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-7649990366029-1_240x240.jpg?v=1671325105",
-    name: "VVARDIS",
-    desc: "New White Enamel Anti-Aging Serum",
-    price: "100",
-    qty: 1,
-  },
-  {
-    id: 3,
-    img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-3700458602937-1_240x240.jpg?v=1672420173",
-    name: "MEMO PARIS",
-    desc: "French Leather Eau de Parfum",
-    price: "325",
-    qty: 1,
-  },
-  {
-    id: 4,
-    img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-817237011958-1_240x240.jpg?v=1671800868",
-    name: "M-61",
-    desc: "Vitablast C® 30% Serum Concentrate",
-    price: "325",
-    qty: 1,
-  },
+  // {
+  //   id: 1,
+  //   img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-5060552905975-1_240x240.jpg?v=1671541617",
+  //   name: "AUGUSTINUS BADER",
+  //   desc: "The Hydration Heroes With The Rich Cream",
+  //   price: "325",
+  //   qty: 1,
+  // },
+  // {
+  //   id: 2,
+  //   img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-7649990366029-1_240x240.jpg?v=1671325105",
+  //   name: "VVARDIS",
+  //   desc: "New White Enamel Anti-Aging Serum",
+  //   price: "100",
+  //   qty: 1,
+  // },
+  // {
+  //   id: 3,
+  //   img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-3700458602937-1_240x240.jpg?v=1672420173",
+  //   name: "MEMO PARIS",
+  //   desc: "French Leather Eau de Parfum",
+  //   price: "325",
+  //   qty: 1,
+  // },
+  // {
+  //   id: 4,
+  //   img: "https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-817237011958-1_240x240.jpg?v=1671800868",
+  //   name: "M-61",
+  //   desc: "Vitablast C® 30% Serum Concentrate",
+  //   price: "325",
+  //   qty: 1,
+  // },
 ];
 
 //Cart display function
@@ -133,4 +133,23 @@ function samplefunc(){
     localStorage.setItem("samples",true)
     document.querySelector("#samples").innerText="Remove 3 samples"
   }
+}
+
+
+//if the cart is empty
+if(data.length==0){
+  var parent=document.querySelector("#parent")
+  parent.style.display = "none";
+  var footer=document.querySelector(".footer-part")
+  footer.style.display = "none";
+  var emptydiv=document.createElement("div")
+  emptydiv.setAttribute("id","emptydiv")
+  var emptymsg=document.createElement("p");
+    emptymsg.innerText="YOUR CART IS EMPTY"
+    emptymsg.setAttribute("id","emptymsg")
+    var emptybutton=document.createElement("button")
+    emptybutton.innerText="SHOP OUR PRODUCTS"
+    emptybutton.setAttribute("id","emptybtn")
+    emptydiv.append(emptymsg,emptybutton)
+    document.querySelector("body").append(emptydiv)
 }

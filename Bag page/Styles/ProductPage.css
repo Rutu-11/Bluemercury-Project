@@ -4,6 +4,35 @@
     color: rgb(102, 102, 102);
     font-family: "Montserrat Regular", sans-serif;
   }
+  #emptydiv{
+    width: 100px;
+    height: 100px;
+    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto;
+  }
+  #emptymsg{
+    width: 300px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 1px;
+    color:rgb(18, 40, 76)
+  }
+  #emptybtn{
+    width: 220px;
+    padding: 15px;
+    font-weight: 400;
+    line-height: 14px;
+    color: white;
+    background-color: rgb(18, 40, 76);
+    border: none;
+    letter-spacing: 1px;
+  }
   h1 {
     padding-bottom: 20px;
     color: rgb(18, 40, 76);
@@ -21,6 +50,8 @@
     text-align: left;
     border-bottom: 0.1px solid rgb(220, 220, 220);
     padding: 10px;
+    font-size: 20px;
+    font-weight: 400;
   }
   td {
     border-bottom: 0.1px solid rgb(220, 220, 220);
